@@ -3,47 +3,83 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/ijo"
     android:orientation="vertical"
-    android:gravity="center"
-    android:layout_marginRight="30dp"
-    android:layout_marginLeft="30dp"
+    android:layout_marginRight="0dp"
+    android:layout_marginLeft="0dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="337dp"
+        android:layout_height="278dp"
+        android:layout_gravity="center"
+        android:src="@drawable/login"
+        android:layout_marginTop="70dp"
+        tools:src="@tools:sample/avatars" />
+
+    <LinearLayout
+        android:layout_width="308dp"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:layout_margin="30dp"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/inpUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="Username"
-        android:inputType="textPersonName"/>
-    <EditText
-        android:id="@+id/inpPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:hint="Password"
-        android:inputType="textPassword"/>
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login"
-        android:layout_marginBottom="10dp"
-        style="@style/Widget.AppCompat.Button.Colored"/>
-    <TextView
-        android:id="@+id/tvCreateAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Creaate Account"
-        android:layout_marginBottom="30dp"/>
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/shape"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/editTextTextEmailAddress"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:drawableStart="@drawable/ic_email"
+            android:backgroundTint="@color/black"
+            android:inputType="textEmailAddress"
+            android:minHeight="48dp"
+            android:layout_gravity="center"
+            android:drawablePadding="12dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <EditText
+            android:id="@+id/editTextTextPassword"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:drawableStart="@drawable/ic_lock"
+            android:backgroundTint="@color/black"
+            android:inputType="textPassword"
+            android:minHeight="48dp"
+            android:layout_gravity="center"
+            tools:ignore="SpeakableTextPresentCheck"
+            android:drawablePadding="12dp"
+            android:textColorHint="#33776F6F"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:background="@drawable/button_rounded"
+            android:layout_marginTop="55dp"
+            android:backgroundTint="@color/ijo"
+            android:layout_marginBottom="25dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="Login"
+            android:textColorHint="#66776F6F"/>
+    </LinearLayout>
 
 </LinearLayout>
