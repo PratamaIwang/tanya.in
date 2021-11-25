@@ -8,4 +8,22 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ijo">#298D80</color>
+
+    <color name="green001">#FFE4F1EF</color>
+    <color name="green002">#FF298D80</color>
+    <color name="green003">#FF188172</color>
+    <color name="green004">#FF0B5B4F</color>
+
+    <color name="yellow001">#FFFBE9C2</color>
+    <color name="yellow002">#FFFDC673</color>
+    <color name="yellow003">#FFFFAD31</color>
+    <color name="yellow004">#FFFF9200</color>
+
+    <color name="grey001">#FFE0E0E0</color>
+    <color name="grey002">#FF776F6F</color>
+    <color name="grey003">#FF545151</color>
+
+
+
+
 </resources>
