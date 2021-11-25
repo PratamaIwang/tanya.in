@@ -5,19 +5,30 @@
       <map>
         <entry key="..\:/Users/Iwang Pratama/AndroidStudioProjects/tanyain/app/src/main/res/layout/activity_main.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/asus/Documents/PSI/tanya.in/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/button_rounded.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/questions_item.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/shape.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/shape_login.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/shape_profil.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/drawable/shape_profil2.xml" value="0.23703703703703705" />
+        <entry key="app/src/main/res/drawable/white_card.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/white_stroke_circel.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.14491298527443106" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.13046448087431695" />
+        <entry key="app/src/main/res/layout/activity_dash.xml" value="0.1671195652173913" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.10037807947412393" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_profil.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
