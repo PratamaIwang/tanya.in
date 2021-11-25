@@ -22,27 +22,27 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        InpUsername = findViewById(R.id.inpUsername)
-        InpPassword = findViewById(R.id.inpPassword)
-        BtnLogin = findViewById(R.id.btnLogin)
-        val dbHelper = DBHelper(this)
-        createAccount = findViewById(R.id.tvCreateAccount)
-
-        createAccount.setOnClickListener{
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
-
-        BtnLogin.setOnClickListener{
-            var username: String = InpUsername.getText().toString().trim()
-            var password: String = InpPassword.getText().toString().trim()
-
-            var res: Boolean = dbHelper.checkUser(username, password)
-            if (res == true){
-                Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
-                startActivity(Intent(this, MainActivity::class.java))
-            }else{
-                Toast.makeText(this,"Login Failed", Toast.LENGTH_SHORT).show()
-            }
-        }
+//        InpUsername = findViewById(R.id.inpUsername)
+//        InpPassword = findViewById(R.id.inpPassword)
+//        BtnLogin = findViewById(R.id.btnLogin)
+//        val dbHelper = DBHelper(this)
+//        createAccount = findViewById(R.id.tvCreateAccount)
+//
+//        createAccount.setOnClickListener{
+//            startActivity(Intent(this, RegisterActivity::class.java))
+//        }
+//
+//        BtnLogin.setOnClickListener{
+//            var username: String = InpUsername.getText().toString().trim()
+//            var password: String = InpPassword.getText().toString().trim()
+//
+//            var res: Boolean = dbHelper.checkUser(username, password)
+//            if (res == true){
+//                Toast.makeText(this, "Login Successfull", Toast.LENGTH_SHORT).show()
+//                startActivity(Intent(this, MainActivity::class.java))
+//            }else{
+//                Toast.makeText(this,"Login Failed", Toast.LENGTH_SHORT).show()
+//            }
+//        }
     }
 }
