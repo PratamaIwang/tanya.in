@@ -3,12 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/ANANG/AndroidStudioProjects/tanya.in/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/Iwang Pratama/AndroidStudioProjects/tanyain/app/src/main/res/layout/activity_main.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/asus/Documents/PSI/tanya.in/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/drawable/button_rounded.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/ic_email.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/shape.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.14491298527443106" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.13046448087431695" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.20664093973117426" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.10037807947412393" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
       </map>
     </option>
