@@ -118,6 +118,7 @@
             android:layout_marginHorizontal="60dp"
             android:background="@drawable/button_green"
             android:text="Register"
+            android:textColor="@color/white"
             android:textAllCaps="false" />
 
     </LinearLayout>
