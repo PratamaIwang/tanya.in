@@ -16,9 +16,6 @@
             android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".DashActivity"
-            android:exported="true" />
-        <activity
             android:name=".Personaldata"
             android:exported="true" />
         <activity
