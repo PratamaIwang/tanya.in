@@ -66,7 +66,7 @@ class Personaldata : AppCompatActivity() {
                     inpAddress.setText("")
                     inpNoHP.setText("")
                     Toast.makeText(this, "Data Saved!", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this, DashActivity::class.java))
+                    startActivity(Intent(this, LoginActivity::class.java))
                 }else{
                     Toast.makeText(this, "Data not saved! Try again", Toast.LENGTH_SHORT).show()
                 }

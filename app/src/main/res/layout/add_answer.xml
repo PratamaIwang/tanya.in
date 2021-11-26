@@ -90,7 +90,6 @@
             android:id="@+id/sendBtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/button_send"
             app:srcCompat="@android:drawable/ic_menu_send"
             app:tint="@color/white" />
 
