@@ -17,7 +17,7 @@
         android:layout_margin="30dp"
         android:layout_gravity="center"
         android:layout_marginTop="0dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/shape_login"
         android:orientation="vertical">
 
         <TextView
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:hint="First Name"
             android:inputType="textPersonName" />
 
@@ -83,7 +83,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="2dp"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="Gender:"
             android:textSize="16sp" />
 
@@ -105,8 +105,6 @@
             android:layout_marginTop="5dp"
             android:layout_marginHorizontal="20dp"
             android:text="Female" />
-
-
 
         <Button
             android:id="@+id/btnRegister2"
