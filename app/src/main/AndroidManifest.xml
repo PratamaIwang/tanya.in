@@ -22,7 +22,7 @@
             android:name=".Profile"
             android:exported="true" />
         <activity
-            android:name=".DashActivity"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
             android:name=".discussActivity"
@@ -31,7 +31,7 @@
             android:name=".makeQuestionActivity"
             android:exported="true" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".DashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
