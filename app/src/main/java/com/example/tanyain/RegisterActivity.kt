@@ -46,7 +46,6 @@ class RegisterActivity : AppCompatActivity() {
 
 
         btnRegister.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
             var email = inpEmailReg.text.toString().trim()
             var password = inpPasswordReg.text.toString().trim()
             var passwordconf = inpConfPassword.text.toString().trim()
@@ -79,6 +78,7 @@ class RegisterActivity : AppCompatActivity() {
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        progressBar.visibility = View.VISIBLE
                         val uid: String = FirebaseAuth.getInstance().currentUser!!.uid
                         val user = User(email, password, null, null, null, null, null, null)
                         database.child("users").child(uid).setValue(user)
