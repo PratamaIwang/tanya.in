@@ -31,6 +31,15 @@
             android:name=".makeQuestionActivity"
             android:exported="true" />
         <activity
+            android:name=".Question"
+            android:exported="true" />
+        <activity
+            android:name=".Uploadimage"
+            android:exported="true" />
+        <activity
+            android:name=".Browseimage"
+            android:exported="true" />
+        <activity
             android:name=".DashActivity"
             android:exported="true">
             <intent-filter>
