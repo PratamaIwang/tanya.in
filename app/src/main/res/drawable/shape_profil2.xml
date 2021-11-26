@@ -1,0 +1,17 @@
+<shape
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid
+        android:color="#80298D80">
+    </solid>
+    <stroke
+        android:width="0dp"
+        android:color="#4D9E94">
+    </stroke>
+    <corners
+        android:topLeftRadius="20dip"
+        android:topRightRadius="20dip"
+        android:bottomLeftRadius="20dip"
+        android:bottomRightRadius="20dip">
+    </corners>
+</shape>
