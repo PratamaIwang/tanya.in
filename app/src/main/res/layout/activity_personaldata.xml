@@ -87,27 +87,33 @@
             android:text="Gender:"
             android:textSize="16sp" />
 
-        <RadioButton
-            android:id="@+id/radiomale"
-            android:layout_width="106dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:paddingHorizontal="4dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginHorizontal="20dp"
-            android:text="Male" />
+        <RadioGroup
+            android:id="@+id/radioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
-        <RadioButton
-            android:id="@+id/radiofemale"
-            android:layout_width="106dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginTop="5dp"
-            android:layout_marginHorizontal="20dp"
-            android:text="Female" />
+            <RadioButton
+                android:id="@+id/radiofemale"
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:text="Female" />
+
+            <RadioButton
+                android:id="@+id/radiomale"
+                android:layout_width="106dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="5dp"
+                android:paddingHorizontal="4dp"
+                android:text="Male" />
+        </RadioGroup>
 
         <Button
-            android:id="@+id/btnRegister2"
+            android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -117,7 +123,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginHorizontal="60dp"
             android:background="@drawable/button_green"
-            android:text="Register"
+            android:text="Save"
             android:textColor="@color/white"
             android:textAllCaps="false" />
 

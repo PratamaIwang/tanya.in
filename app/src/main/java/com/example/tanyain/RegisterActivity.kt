@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
@@ -21,6 +22,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var inpConfPassword: EditText
     private lateinit var register: TextView
     private lateinit var btnRegister: Button
+    private lateinit var btLogin: TextView
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
@@ -37,13 +39,13 @@ class RegisterActivity : AppCompatActivity() {
         register = findViewById(R.id.tvRegister)
         btnRegister = findViewById(R.id.btnRegister)
         progressBar = findViewById(R.id.pb_register)
+        btLogin = findViewById(R.id.tvRegister)
 
         mAuth = Firebase.auth
         database = FirebaseDatabase.getInstance().getReference("tanyain")
 
 
         btnRegister.setOnClickListener {
-            progressBar.visibility = View.VISIBLE
             var email = inpEmailReg.text.toString().trim()
             var password = inpPasswordReg.text.toString().trim()
             var passwordconf = inpConfPassword.text.toString().trim()
@@ -60,6 +62,10 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Password is required!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                Toast.makeText(this, "Please provide valid email!", Toast.LENGTH_SHORT).show()
+            }
             if (password.length < 8) {
                 Toast.makeText(
                     this,
@@ -72,24 +78,26 @@ class RegisterActivity : AppCompatActivity() {
             mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        progressBar.visibility = View.VISIBLE
                         val uid: String = FirebaseAuth.getInstance().currentUser!!.uid
                         val user = User(email, password, null, null, null, null, null, null)
                         database.child("users").child(uid).setValue(user)
                             .addOnCompleteListener(this) { task ->
                                 if (task.isSuccessful) {
-                                    inpEmailReg.setText("")
-                                    inpPasswordReg.setText("")
-                                    inpConfPassword.setText("")
                                     progressBar.visibility = View.GONE
-                                    Toast.makeText(this, "Login Successfull!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "Register Successfull!", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this, Personaldata::class.java))
                                 } else {
-                                    Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "Register failed! Try again", Toast.LENGTH_SHORT).show()
                                 }
                             }
                     } else {
-                        Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Register failed! Try again", Toast.LENGTH_SHORT).show()
                     }
                 }
+        }
+        btLogin.setOnClickListener{
+            startActivity(Intent(this,LoginActivity::class.java))
         }
     }
 }

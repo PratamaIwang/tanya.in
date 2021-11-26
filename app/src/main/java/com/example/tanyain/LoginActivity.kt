@@ -3,10 +3,8 @@ package com.example.tanyain
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -20,6 +18,8 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
 
+    private lateinit var progressBar: ProgressBar
+
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +29,12 @@ class LoginActivity : AppCompatActivity() {
         inpPassword = findViewById(R.id.inpPassword)
         btnLogin = findViewById(R.id.btn_login)
         createAccount = findViewById(R.id.tv_createAccount)
+        progressBar = findViewById(R.id.pb_register)
 
         mAuth = Firebase.auth
 
         btnLogin.setOnClickListener{
+            progressBar.visibility = View.VISIBLE
             var email = inpEmail.getText().toString().trim()
             var password = inpPassword.getText().toString().trim()
 
@@ -40,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this){task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Login Sucessfull", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, MainActivity::class.java))
+                        startActivity(Intent(this, DashActivity::class.java))
                     }else {
                         Toast.makeText(
                             this, "Login Failed, Email" +
@@ -48,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
         }
-
         createAccount.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
         }
