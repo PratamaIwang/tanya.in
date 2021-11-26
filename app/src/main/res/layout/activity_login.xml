@@ -25,11 +25,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="0dp"
-        android:background="@drawable/shape"
+        android:background="@drawable/shape_login"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Login"
@@ -39,47 +38,59 @@
             android:textSize="25sp" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/inpEmail"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:ems="10"
+            android:hint="Email"
             android:drawableStart="@drawable/ic_email"
             android:backgroundTint="@color/black"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
             android:layout_gravity="center"
             android:drawablePadding="12dp"
+            android:textColorHint="#33776F6F"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/inpPassword"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
+            android:hint="Password"
             android:drawableStart="@drawable/ic_lock"
             android:backgroundTint="@color/black"
             android:inputType="textPassword"
             android:minHeight="48dp"
             android:layout_gravity="center"
-            tools:ignore="SpeakableTextPresentCheck"
             android:drawablePadding="12dp"
-            android:textColorHint="#33776F6F"/>
+            android:textColorHint="#33776F6F"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btn_login"
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
             android:background="@drawable/button_rounded"
             android:layout_marginTop="55dp"
             android:backgroundTint="@color/ijo"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="10dp"
             android:textStyle="bold"
             android:textColor="@color/white"
             android:text="Login"
             android:textColorHint="#66776F6F"/>
+
+        <TextView
+            android:id="@+id/tv_createAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Create Account"/>
+
     </LinearLayout>
 
 </LinearLayout>
