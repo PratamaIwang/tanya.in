@@ -34,18 +34,18 @@ class LoginActivity : AppCompatActivity() {
         mAuth = Firebase.auth
 
         btnLogin.setOnClickListener{
-            progressBar.visibility = View.VISIBLE
             var email = inpEmail.getText().toString().trim()
             var password = inpPassword.getText().toString().trim()
 
+            progressBar.visibility = View.VISIBLE
             mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this){task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Login Sucessfull", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, DashActivity::class.java))
                     }else {
-                        Toast.makeText(
-                            this, "Login Failed, Email" +
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(this, "Login Failed, Email" +
                                     " or Password doesn't match", Toast.LENGTH_LONG).show()
                     }
                 }
