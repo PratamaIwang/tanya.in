@@ -22,6 +22,15 @@
             android:name=".Profile"
             android:exported="true" />
         <activity
+            android:name=".DashActivity"
+            android:exported="true" />
+        <activity
+            android:name=".discussActivity"
+            android:exported="true" />
+        <activity
+            android:name=".makeQuestionActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
