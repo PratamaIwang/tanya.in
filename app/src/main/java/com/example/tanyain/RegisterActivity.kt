@@ -44,7 +44,6 @@ class RegisterActivity : AppCompatActivity() {
         mAuth = Firebase.auth
         database = FirebaseDatabase.getInstance().getReference("tanyain")
 
-
         btnRegister.setOnClickListener {
             var email = inpEmailReg.text.toString().trim()
             var password = inpPasswordReg.text.toString().trim()
