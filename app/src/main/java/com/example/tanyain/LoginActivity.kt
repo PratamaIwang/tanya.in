@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this){task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Login Sucessfull", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, MainActivity::class.java))
+                        startActivity(Intent(this, DashActivity::class.java))
                     }else {
                         Toast.makeText(
                             this, "Login Failed, Email" +

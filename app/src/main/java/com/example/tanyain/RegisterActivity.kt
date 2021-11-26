@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.*
 import androidx.core.view.isVisible
@@ -60,6 +61,10 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Password is required!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                Toast.makeText(this, "Please provide valid email!", Toast.LENGTH_SHORT).show()
+            }
             if (password.length < 8) {
                 Toast.makeText(
                     this,
@@ -81,13 +86,14 @@ class RegisterActivity : AppCompatActivity() {
                                     inpPasswordReg.setText("")
                                     inpConfPassword.setText("")
                                     progressBar.visibility = View.GONE
-                                    Toast.makeText(this, "Login Successfull!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "Register Successfull!", Toast.LENGTH_SHORT).show()
+                                    startActivity(Intent(this, Personaldata::class.java))
                                 } else {
-                                    Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(this, "Register failed! Try again", Toast.LENGTH_SHORT).show()
                                 }
                             }
                     } else {
-                        Toast.makeText(this, "Login failed!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Register failed! Try again", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
