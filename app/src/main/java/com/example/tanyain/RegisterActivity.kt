@@ -59,7 +59,7 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (passwordconf.isEmpty()) {
-                Toast.makeText(this, "Password is required!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Password confirmation is required!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -88,10 +88,12 @@ class RegisterActivity : AppCompatActivity() {
                                     Toast.makeText(this, "Register Successfull!", Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this, Personaldata::class.java))
                                 } else {
+                                    progressBar.visibility = View.GONE
                                     Toast.makeText(this, "Register failed! Try again", Toast.LENGTH_SHORT).show()
                                 }
                             }
                     } else {
+                        progressBar.visibility = View.GONE
                         Toast.makeText(this, "Register failed! Try again", Toast.LENGTH_SHORT).show()
                     }
                 }
