@@ -22,6 +22,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var inpConfPassword: EditText
     private lateinit var register: TextView
     private lateinit var btnRegister: Button
+    private lateinit var btLogin: TextView
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
@@ -38,6 +39,7 @@ class RegisterActivity : AppCompatActivity() {
         register = findViewById(R.id.tvRegister)
         btnRegister = findViewById(R.id.btnRegister)
         progressBar = findViewById(R.id.pb_register)
+        btLogin = findViewById(R.id.tvRegister)
 
         mAuth = Firebase.auth
         database = FirebaseDatabase.getInstance().getReference("tanyain")
@@ -82,9 +84,6 @@ class RegisterActivity : AppCompatActivity() {
                         database.child("users").child(uid).setValue(user)
                             .addOnCompleteListener(this) { task ->
                                 if (task.isSuccessful) {
-                                    inpEmailReg.setText("")
-                                    inpPasswordReg.setText("")
-                                    inpConfPassword.setText("")
                                     progressBar.visibility = View.GONE
                                     Toast.makeText(this, "Register Successfull!", Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this, Personaldata::class.java))
@@ -96,6 +95,9 @@ class RegisterActivity : AppCompatActivity() {
                         Toast.makeText(this, "Register failed! Try again", Toast.LENGTH_SHORT).show()
                     }
                 }
+        }
+        btLogin.setOnClickListener{
+            startActivity(Intent(this,LoginActivity::class.java))
         }
     }
 }
