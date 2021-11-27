@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="ijo">#298D80</color>
+    <color name="underline">#BDB8B8</color>
 
     <color name="green001">#FFE4F1EF</color>
     <color name="green011">#7DAAA4</color>
