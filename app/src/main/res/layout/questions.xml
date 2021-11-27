@@ -54,7 +54,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/ques"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="5dp"
