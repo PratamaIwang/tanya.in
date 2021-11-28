@@ -5,84 +5,121 @@
     android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:paddingTop="20dp"
+    android:paddingHorizontal="5dp"
+    android:gravity="center|top"
     android:orientation="vertical"
-    tools:context=".Browseimage">
+    tools:context=".QuestionActivity">
 
     <TextView
-        android:layout_width="361dp"
+        android:layout_width="360dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
+        android:textAlignment="center"
         android:text="Tell the community what problem you are facing... :)"
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/btnupload"
-        android:layout_width="376dp"
-        android:layout_height="60dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="center"
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/black_stroke_card"
-        android:orientation="vertical" />
+        android:layout_marginHorizontal="20dp"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/white_card"
+        >
 
-    <LinearLayout
-        android:layout_width="376dp"
-        android:layout_height="352dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="15dp"
-        android:background="@drawable/black_stroke_card"
-        android:orientation="vertical">
-
-        <TextView
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:text="Write Your Question:"
-            android:textSize="17sp"
-            android:textStyle="bold" />
+            android:hint="Programming Language" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="346dp"
-            android:layout_height="277dp"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:background="@drawable/black_stroke_card"
-            android:orientation="vertical">
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginBottom="20dp"
+            android:padding="15dp"
+            android:background="@drawable/white_card"
+            android:elevation="20dp">
 
-        </LinearLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/problemDesc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="top"
+                android:hint="Problem Description" />
 
-    </LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btnAddImg"
-        android:layout_width="376dp"
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="210dp"
+        android:layout_gravity="left"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/white_card"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/poppins"
+            android:text="Problem Image" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/questionImg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="5dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <Button
+            android:id="@+id/btnAddImg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/button_circle"
+            android:fontFamily="@font/poppins"
+            android:text="Select Photo" />
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_Question"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="50dp"
-        android:background="@drawable/black_stroke_card"
-        android:text="Add Image"
-        android:textColor="@color/black" />
+        android:layout_marginBottom="5dp"
+        android:visibility="gone"
+        />
 
     <Button
         android:id="@+id/btnbrowse"
-        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="173dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="50dp"
         android:background="@drawable/button_yellow"
+        android:elevation="30dp"
+        android:fontFamily="@font/poppins"
         android:text="Upload"
+        android:textStyle="bold"
         android:textColor="@color/black" />
-
 
 </LinearLayout>
