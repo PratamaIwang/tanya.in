@@ -37,7 +37,8 @@
                 android:text="Login"
                 android:textAlignment="center"
                 android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"/>
 
             <EditText
                 android:id="@+id/inpEmail"
@@ -55,7 +56,8 @@
                 android:background="@drawable/input_yellow"
                 android:minHeight="45dp"
                 app:backgroundTint="@color/yellow001"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:fontFamily="@font/poppins_regular"/>
 
             <EditText
                 android:id="@+id/inpPassword"
@@ -72,7 +74,8 @@
                 android:background="@drawable/input_yellow"
                 android:minHeight="45dp"
                 app:backgroundTint="@color/yellow001"
-                tools:ignore="SpeakableTextPresentCheck" />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:fontFamily="@font/poppins_regular"/>
 
             <ProgressBar
                 android:id="@+id/pb_register"
@@ -84,7 +87,7 @@
             <Button
                 android:id="@+id/btn_login"
                 android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
@@ -92,7 +95,8 @@
                 android:background="@drawable/button_green"
                 android:text="Login"
                 android:textColor="@color/white"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins_regular"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -107,7 +111,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
                     android:paddingRight="5dp"
-                    android:text="Doesn't have an account?" />
+                    android:text="Doesn't have an account?"
+                    android:fontFamily="@font/poppins_regular" />
 
                 <TextView
                     android:id="@+id/tv_createAccount"
@@ -116,7 +121,8 @@
                     android:gravity="center"
                     android:textSize="15dp"
                     android:text="Create Account"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_regular"/>
             </LinearLayout>
 
         </LinearLayout>
