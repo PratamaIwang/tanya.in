@@ -10,9 +10,9 @@
     android:fitsSystemWindows="true"
     tools:context=".DashActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <LinearLayout
@@ -46,35 +46,39 @@
 
         </LinearLayout>
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dashboard"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="556dp"
+            android:layout_marginEnd="35dp"
+            android:backgroundTint="@color/green002"
+            android:src="@drawable/ic_plus"
+            app:elevation="10dp"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.907"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.883"
+            app:tint="@color/white" />
+
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_listQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="10dp"/>
+            android:layout_below="@+id/dashboard"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="13dp"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollbars="vertical"
+            tools:layout_editor_absoluteX="3dp"
+            tools:layout_editor_absoluteY="77dp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/fab1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end | bottom"
-                android:layout_margin="15dp"
-                android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/green002"
-                android:src="@drawable/ic_plus"
-                app:elevation="10dp"
-                app:fabSize="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:tint="@color/white" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </LinearLayout>
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/dash_navView"

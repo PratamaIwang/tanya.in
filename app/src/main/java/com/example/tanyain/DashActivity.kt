@@ -9,12 +9,13 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 
 class DashActivity : AppCompatActivity() {
@@ -29,6 +30,10 @@ class DashActivity : AppCompatActivity() {
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
+    private lateinit var question_db: DatabaseReference
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var question: ArrayList<Question>
 
     private var backPressedTime = 0L
 
@@ -36,23 +41,36 @@ class DashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dash)
 
+        /*Initialization*/
+        btnMenu = findViewById(R.id.menuBtn)
+        val drawerLayout: DrawerLayout = findViewById(R.id.dash_drawerLayout)
+        val nav_view: NavigationView = findViewById(R.id.dash_navView)
+
+        var uid: String = FirebaseAuth.getInstance().currentUser!!.uid
+        database = FirebaseDatabase.getInstance().getReference("tanyain")
         mAuth = Firebase.auth
 
+        recyclerView = findViewById(R.id.rv_listQuestion)
+
+        /*Recycler View*/
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        question = arrayListOf<Question>()
+        getUserData()
+
+        /*Floating Button*/
         fab = findViewById(R.id.fab1)
         fab.setOnClickListener{
             startActivity(Intent(this,QuestionActivity::class.java))
         }
 
-        btnMenu = findViewById(R.id.menuBtn)
-        val drawerLayout: DrawerLayout = findViewById(R.id.dash_drawerLayout)
-        val nav_view: NavigationView = findViewById(R.id.dash_navView)
-
+        /*Side Navbar*/
         btnMenu.setOnClickListener{
             if(!drawerLayout.isDrawerOpen(GravityCompat.START)){
                 drawerLayout.openDrawer(GravityCompat.START)
             }
         }
-
         nav_view.setNavigationItemSelectedListener {
             var id = it.itemId
             if (id==R.id.nav_home){
@@ -66,11 +84,7 @@ class DashActivity : AppCompatActivity() {
             }
             true
         }
-        database = FirebaseDatabase.getInstance().getReference("tanyain")
-
-        var uid: String = FirebaseAuth.getInstance().currentUser!!.uid
         header=nav_view.getHeaderView(0)
-
         if(uid!=null){
             nav_Name = header.findViewById(R.id.nav_nameProfile)
             nav_Email = header.findViewById(R.id.nav_emailProfile)
@@ -86,6 +100,29 @@ class DashActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun getUserData() {
+        question_db = FirebaseDatabase.getInstance().getReference("tanyain").child("question")
+
+        question_db.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    for(questionSnapshot in snapshot.children){
+                        val question_data = questionSnapshot.getValue(Question::class.java)
+                        question.add(question_data!!)
+                    }
+                    recyclerView.adapter = QuestionsAdapter(question)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+    /*Back Button BackEnd*/
     override fun onBackPressed() {
         if(backPressedTime + 2000 > System.currentTimeMillis()){
             super.onBackPressed()

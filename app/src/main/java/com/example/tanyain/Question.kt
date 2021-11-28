@@ -5,4 +5,4 @@ data class Question( val userId:String? = null
                     , val status:String? = null
                     , val kategori:String? = null
                     , val desc:String? = null
-                    , val imageUrl:String? = null)
+                    , val imageUUID:String? = null)

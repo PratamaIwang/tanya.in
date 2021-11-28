@@ -43,6 +43,7 @@ class LoginActivity : AppCompatActivity() {
             mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this){task ->
                     if (task.isSuccessful) {
+                        progressBar.visibility = View.GONE
                         Toast.makeText(this, "Login Sucessfull", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, DashActivity::class.java))
                         finish()

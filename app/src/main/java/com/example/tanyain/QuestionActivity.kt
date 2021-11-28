@@ -11,11 +11,13 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
+import kotlin.collections.ArrayList
 
 class QuestionActivity : AppCompatActivity() {
 
@@ -45,6 +47,7 @@ class QuestionActivity : AppCompatActivity() {
         var uid: String = FirebaseAuth.getInstance().currentUser!!.uid
         database = FirebaseDatabase.getInstance().getReference("tanyain").child("question")
 
+        /*Counter ID*/
         database.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 maxid = snapshot.childrenCount
@@ -55,10 +58,12 @@ class QuestionActivity : AppCompatActivity() {
             }
         })
 
+        /*OnClick Listener*/
         btnImage.setOnClickListener{
             getContent.launch("image/*")
         }
 
+        /*Upload*/
         btnUpload.setOnClickListener{
             progressBar.visibility = View.VISIBLE
             val filename = UUID.randomUUID().toString()
@@ -70,30 +75,20 @@ class QuestionActivity : AppCompatActivity() {
                     var fName = it.child("firstName").value.toString().trim()
                     var lName = it.child("lastName").value.toString().trim()
                     val id= maxid.plus(1).toString().trim()
-                    Log.d("URL:", it.toString())
 
                     img_database.putFile(selectedPhoto!!)
-                        .addOnSuccessListener {
-                            img_database.downloadUrl.addOnSuccessListener {
-                                var url = it.toString()
-                                val question = Question( uid,fName+" "+lName,"Unsolved",category,desc,url)
-                                database.child(id).setValue(question).addOnCompleteListener(this) { task ->
-                                    if(task.isSuccessful){
-                                        progressBar.visibility = View.GONE
-                                        Toast.makeText(this,"Problem posted successfully!",Toast.LENGTH_SHORT).show()
-                                        startActivity(Intent(this,DashActivity::class.java))
-                                        finish()
-                                    }else {
-                                        progressBar.visibility = View.GONE
-                                        Toast.makeText(this,"Problem posted Failed! Try Again",Toast.LENGTH_SHORT).show()
-                                    }
-                                }
-                            }
-                        }
-                        .addOnFailureListener{
+                    val question = Question( uid,fName+" "+lName,"Unsolved",category,desc,filename)
+                    database.child(id).setValue(question).addOnCompleteListener(this) { task ->
+                        if(task.isSuccessful){
                             progressBar.visibility = View.GONE
-                            Toast.makeText(this,"Image failed to upload!",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"Problem uploaded successfully!",Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this,DashActivity::class.java))
+                            finish()
+                        }else {
+                            progressBar.visibility = View.GONE
+                            Toast.makeText(this,"Problem upload failed! Try again",Toast.LENGTH_SHORT).show()
                         }
+                    }
                 }
         }
     }

@@ -2,6 +2,7 @@ package com.example.tanyain
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.system.Os.close
@@ -19,6 +20,9 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import de.hdodenhof.circleimageview.CircleImageView
+import java.io.File
 import kotlin.math.log
 
 class Profile : AppCompatActivity() {
@@ -29,6 +33,7 @@ class Profile : AppCompatActivity() {
 
     private lateinit var btnEdit: Button
     private lateinit var btnMenu: ImageView
+    private lateinit var profileImg: ImageView
 
     private lateinit var header: View
     private lateinit var nav_Name: TextView
@@ -48,6 +53,8 @@ class Profile : AppCompatActivity() {
 
         btnMenu = findViewById(R.id.menuBtn)
         btnEdit = findViewById(R.id.btnEditProfile)
+
+        profileImg = findViewById(R.id.imageProfile)
 
         mAuth = Firebase.auth
         database = FirebaseDatabase.getInstance().getReference("tanyain")
@@ -76,8 +83,24 @@ class Profile : AppCompatActivity() {
         }
 
 
-        /*Read Data From Firebase Realtime Database*/
         var uid: String = FirebaseAuth.getInstance().currentUser!!.uid
+
+        /*Read Data From Firebase Storage*/
+        database.child("users").child(uid).get().addOnSuccessListener {
+            var filename = it.child("imageId").value.toString().trim()
+            Toast.makeText(this,filename,Toast.LENGTH_LONG).show()
+            Log.i("Image Name: ", filename)
+            val database_store = FirebaseStorage.getInstance().reference.child("users_images/$filename")
+            val localfile = File.createTempFile("tempImage","jpg")
+            database_store.getFile(localfile).addOnSuccessListener {
+                val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                profileImg.setImageBitmap(bitmap)
+            }.addOnFailureListener{
+                Toast.makeText(this,"Failed",Toast.LENGTH_LONG).show()
+            }
+        }
+
+        /*Read Data From Firebase Realtime Database*/
         database.child("users").child(uid).get()
             .addOnSuccessListener {
             var fName = it.child("firstName").value.toString().trim()

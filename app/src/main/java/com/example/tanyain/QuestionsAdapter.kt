@@ -7,29 +7,36 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class QuestionsAdapter (var data : List<QuestionsModel>) :
+class QuestionsAdapter (private val questionList : ArrayList<Question>) : RecyclerView.Adapter<QuestionsAdapter.DataVHold>() {
 
-    RecyclerView.Adapter<QuestionsAdapter.DataVHold>() {
-    inner class DataVHold(itemView: View) :
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionsAdapter.DataVHold {
 
-        RecyclerView.ViewHolder(itemView)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.questions, parent,false)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataVHold {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.questions, parent, false)
-        return DataVHold(view)
+        return DataVHold(itemView)
     }
 
-    override fun onBindViewHolder(holder: DataVHold, position: Int) {
-        holder.itemView.apply {
-//            findViewById<ImageView>(R.id.fotoProfil).image = data[position].fotoProfil
-            findViewById<TextView>(R.id.name).text = data[position].nama
-            findViewById<TextView>(R.id.date).text = data[position].tanggal
-            findViewById<TextView>(R.id.category).text = data[position].kategori
-            findViewById<TextView>(R.id.ques).text = data[position].pertanyaan
-        }
+    override fun onBindViewHolder(holder: QuestionsAdapter.DataVHold, position: Int) {
+
+        val currentitem = questionList[position]
+
+        holder.nama.text = currentitem.name
+        holder.category.text = currentitem.kategori
+        holder.question.text = currentitem.desc
+
     }
 
     override fun getItemCount(): Int {
-        return data.size
+
+        return questionList.size
+    }
+
+    class DataVHold(itemView : View) : RecyclerView.ViewHolder(itemView){
+
+
+        val nama : TextView = itemView.findViewById(R.id.rv_Name)
+        val category : TextView = itemView.findViewById(R.id.rv_Category)
+        val question : TextView = itemView.findViewById(R.id.rv_Question)
+
     }
 }
