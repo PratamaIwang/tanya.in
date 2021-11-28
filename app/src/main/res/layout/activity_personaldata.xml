@@ -129,14 +129,13 @@
 
             <RadioButton
                 android:id="@+id/radiofemale"
-                android:layout_width="165"
+                android:layout_width="167dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginStart="10p"
                 android:text="Female"
                 android:background="@drawable/input_yellow"
                 android:minHeight="45dp"
-                app:backgroundTint="@color/yellow001"/>
+                app:background="@color/yellow001"/>
 
             <RadioButton
                 android:id="@+id/radiomale"
