@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/TanyainThemeNoActionBar">
         <activity
+            android:name=".DashActivity"
+            android:exported="true" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
@@ -37,7 +40,7 @@
             android:name=".Browseimage"
             android:exported="true" />
         <activity
-            android:name=".DashActivity"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -3,17 +3,19 @@ package com.example.tanyain
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 
 class DashActivity : AppCompatActivity() {
 
@@ -28,14 +30,13 @@ class DashActivity : AppCompatActivity() {
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
+    private var backPressedTime = 0L
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_dash)
 
-        if(FirebaseAuth.getInstance().currentUser==null){
-            startActivity(Intent(this, LoginActivity::class.java))
-        }else{
-            setContentView(R.layout.activity_dash)
-        }
+        mAuth = Firebase.auth
 
         fab = findViewById(R.id.fab1)
         fab.setOnClickListener{
@@ -61,6 +62,7 @@ class DashActivity : AppCompatActivity() {
             }else if(id==R.id.nav_Logout){
                 mAuth.signOut()
                 startActivity(Intent(this,LoginActivity::class.java))
+                finish()
             }
             true
         }
@@ -82,6 +84,15 @@ class DashActivity : AppCompatActivity() {
                     nav_Email.setText(email)
                 }
         }
+
+    }
+    override fun onBackPressed() {
+        if(backPressedTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed()
+        }else{
+            Toast.makeText(applicationContext,"Press back again to exit app", Toast.LENGTH_SHORT).show()
+        }
+        backPressedTime = System.currentTimeMillis()
 
     }
 }

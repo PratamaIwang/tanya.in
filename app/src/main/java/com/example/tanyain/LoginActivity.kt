@@ -11,6 +11,7 @@ import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
 
+
     private lateinit var inpEmail: EditText
     private lateinit var inpPassword: EditText
     private lateinit var btnLogin: Button
@@ -20,6 +21,7 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var progressBar: ProgressBar
 
+    private var backPressedTime = 0L
     @Override
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Login Sucessfull", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, DashActivity::class.java))
+                        finish()
                     }else {
                         progressBar.visibility = View.GONE
                         Toast.makeText(this, "Login Failed, Email" +
@@ -53,6 +56,16 @@ class LoginActivity : AppCompatActivity() {
         createAccount.setOnClickListener{
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+
+    }
+
+    override fun onBackPressed() {
+        if(backPressedTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed()
+        }else{
+            Toast.makeText(applicationContext,"Press back again to exit app", Toast.LENGTH_SHORT).show()
+        }
+        backPressedTime = System.currentTimeMillis()
 
     }
 }

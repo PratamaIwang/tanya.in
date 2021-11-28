@@ -82,6 +82,7 @@ class QuestionActivity : AppCompatActivity() {
                                         progressBar.visibility = View.GONE
                                         Toast.makeText(this,"Problem posted successfully!",Toast.LENGTH_SHORT).show()
                                         startActivity(Intent(this,DashActivity::class.java))
+                                        finish()
                                     }else {
                                         progressBar.visibility = View.GONE
                                         Toast.makeText(this,"Problem posted Failed! Try Again",Toast.LENGTH_SHORT).show()

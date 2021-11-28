@@ -70,6 +70,7 @@ class Profile : AppCompatActivity() {
             }else if(id==R.id.nav_Logout){
                 mAuth.signOut()
                 startActivity(Intent(this,LoginActivity::class.java))
+                finish()
             }
             true
         }
