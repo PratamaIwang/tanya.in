@@ -3,28 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/ijo"
+    android:layout_height="800dp"
+    android:background="@drawable/bg_login"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="218dp"
-        android:layout_height="218dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="90dp"
-        android:src="@drawable/login"
-        tools:src="@tools:sample/avatars" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="218dp"-->
+    <!--        android:layout_height="218dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginTop="90dp"-->
+    <!--        android:src="@drawable/login"-->
+    <!--        tools:src="@tools:sample/avatars" />-->
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_gravity="center"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="350dp">
 
         <LinearLayout
-            android:layout_width="308dp"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:layout_marginTop="0dp"
@@ -35,48 +36,62 @@
                 android:layout_width="238dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginVertical="20dp"
-                android:text="REGISTER"
+                android:layout_marginTop="20dp"
+                android:text="Register"
                 android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"/>
 
             <EditText
                 android:id="@+id/inpEmailReg"
-                android:layout_width="281dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/black"
-                android:drawableStart="@drawable/ic_profil"
-                android:drawablePadding="10dp"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="15dp"
+                android:paddingStart="10dp"
+                android:textColorHint="#33776F6F"
                 android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:backgroundTint="@color/yellow001"
+                tools:ignore="SpeakableTextPresentCheck"  />
 
             <EditText
                 android:id="@+id/inpPasswordReg"
-                android:layout_width="281dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="10dp"
-                android:backgroundTint="@color/black"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="10dp"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="15dp"
+                android:paddingStart="10dp"
+                android:textColorHint="#33776F6F"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:backgroundTint="@color/yellow001"/>
 
             <EditText
                 android:id="@+id/inpConfPassword"
-                android:layout_width="281dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/black"
-                android:layout_marginBottom="20dp"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="10dp"
-                android:ems="10"
+                android:layout_marginTop="20dp"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="15dp"
+                android:paddingStart="10dp"
+                android:textColorHint="#33776F6F"
                 android:hint="Confirm Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:backgroundTint="@color/yellow001" />
 
             <ProgressBar
                 android:id="@+id/pb_register"
@@ -88,15 +103,16 @@
             <Button
                 android:id="@+id/btnRegister"
                 style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/button_rounded"
-                android:text="Register" />
+                android:textSize="20dp"
+                android:background="@drawable/button_green"
+                android:text="Next"
+                android:textColor="@color/white"
+                android:textAllCaps="false" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -110,14 +126,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="5dp"
-                    android:text="Already have an account?" />
+                    android:text="Already have an account?"
+                    android:textSize="15dp"/>
 
                 <TextView
                     android:id="@+id/tvRegister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Back to Login"
-                    android:textAlignment="center"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
             </LinearLayout>
 

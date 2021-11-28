@@ -3,27 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/background"
+    android:background="@drawable/bg_login"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="800dp"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="337dp"
-        android:layout_height="278dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp"
-        android:src="@drawable/login"
-        tools:src="@tools:sample/avatars" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="337dp"-->
+    <!--        android:layout_height="278dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        android:src="@drawable/login"-->
+    <!--        tools:src="@tools:sample/avatars" />-->
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="350dp">
 
         <LinearLayout
-            android:layout_width="308dp"
+            android:layout_width="380dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:background="@drawable/shape_login"
@@ -40,34 +41,37 @@
 
             <EditText
                 android:id="@+id/inpEmail"
-                android:layout_width="250dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/black"
                 android:drawableStart="@drawable/ic_email"
-                android:drawablePadding="12dp"
-                android:ems="10"
+                android:drawablePadding="15dp"
+                android:paddingStart="10dp"
+                android:textColorHint="#33776F6F"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
-                android:minHeight="48dp"
-                android:textColorHint="#33776F6F"
+                android:ems="10"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:backgroundTint="@color/yellow001"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <EditText
                 android:id="@+id/inpPassword"
-                android:layout_width="250dp"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:backgroundTint="@color/black"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="12dp"
-                android:ems="10"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="15dp"
+                android:paddingStart="10dp"
+                android:textColorHint="#33776F6F"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:minHeight="48dp"
-                android:textColorHint="#33776F6F"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:backgroundTint="@color/yellow001"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ProgressBar
@@ -79,17 +83,16 @@
 
             <Button
                 android:id="@+id/btn_login"
-                android:layout_width="150dp"
+                android:layout_width="200dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/button_rounded"
-                android:backgroundTint="@color/ijo"
+                android:textSize="20dp"
+                android:background="@drawable/button_green"
                 android:text="Login"
                 android:textColor="@color/white"
-                android:textColorHint="#66776F6F"
-                android:textStyle="bold" />
+                android:textAllCaps="false"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -102,6 +105,7 @@
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="15dp"
                     android:paddingRight="5dp"
                     android:text="Doesn't have an account?" />
 
@@ -109,10 +113,10 @@
                     android:id="@+id/tv_createAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-
                     android:gravity="center"
-                    android:text="Create Account" />
+                    android:textSize="15dp"
+                    android:text="Create Account"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>

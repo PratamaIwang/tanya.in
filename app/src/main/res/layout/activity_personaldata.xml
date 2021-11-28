@@ -2,19 +2,28 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/ijo"
+    android:background="@drawable/bg_1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="0dp"
     android:layout_marginRight="0dp"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".Personaldata">
 
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top"
+        android:layout_margin="10dp"
+        android:background="@drawable/black_stroke_circel"
+        app:srcCompat="@drawable/ic_back"
+        app:tint="@color/black" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="30dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:layout_gravity="center"
         android:layout_marginTop="0dp"
         android:background="@drawable/shape_login"
@@ -24,10 +33,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_margin="30dp"
-            android:text="PERSONAL DATA"
+            android:layout_margin="20dp"
+            android:text="Personal Data"
             android:textAlignment="center"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textStyle="bold" />
 
         <EditText
@@ -35,9 +44,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:hint="First Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"/>
 
         <EditText
             android:id="@+id/inpLname"
@@ -45,8 +57,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:hint="Last Name"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"/>
 
         <EditText
             android:id="@+id/inpBirth"
@@ -55,8 +71,12 @@
             android:layout_gravity="center"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:hint="Birthday"
-            android:inputType="date" />
+            android:inputType="date"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"/>
 
         <EditText
             android:id="@+id/inpAddr"
@@ -64,8 +84,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:hint="Address"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"/>
 
         <EditText
             android:id="@+id/inpNo"
@@ -73,59 +97,73 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:layout_gravity="center"
             android:hint="No. Handphone"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"/>
 
         <TextView
-            android:layout_width="306dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="2dp"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:text="Gender:"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"
+            />
 
         <RadioGroup
             android:id="@+id/radioBtn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp">
 
             <RadioButton
                 android:id="@+id/radiofemale"
-                android:layout_width="106dp"
+                android:layout_width="167dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
-                android:text="Female" />
+                android:text="Female"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:background="@color/yellow001"/>
 
             <RadioButton
                 android:id="@+id/radiomale"
-                android:layout_width="106dp"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
                 android:paddingHorizontal="4dp"
-                android:text="Male" />
+                android:text="Male"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:backgroundTint="@color/yellow001"/>
         </RadioGroup>
 
         <Button
             android:id="@+id/btnSave"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="130dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="60dp"
+            android:layout_marginVertical="10dp"
             android:background="@drawable/button_green"
             android:text="Save"
+            android:textSize="20sp"
             android:textColor="@color/white"
             android:textAllCaps="false" />
+
+
 
     </LinearLayout>
 
