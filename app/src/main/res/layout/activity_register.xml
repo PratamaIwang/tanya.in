@@ -9,6 +9,15 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView"-->
+    <!--        android:layout_width="218dp"-->
+    <!--        android:layout_height="218dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginTop="90dp"-->
+    <!--        android:src="@drawable/login"-->
+    <!--        tools:src="@tools:sample/avatars" />-->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_gravity="center"
@@ -32,7 +41,8 @@
                 android:textAlignment="center"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins_regular"/>
 
             <EditText
                 android:id="@+id/inpEmailReg"
@@ -50,7 +60,8 @@
                 android:background="@drawable/input_yellow"
                 android:minHeight="45dp"
                 app:backgroundTint="@color/yellow001"
-                tools:ignore="SpeakableTextPresentCheck"  />
+                tools:ignore="SpeakableTextPresentCheck"
+                android:fontFamily="@font/poppins_regular" />
 
             <EditText
                 android:id="@+id/inpPasswordReg"
@@ -66,7 +77,8 @@
                 android:inputType="textPassword"
                 android:background="@drawable/input_yellow"
                 android:minHeight="45dp"
-                app:backgroundTint="@color/yellow001"/>
+                app:backgroundTint="@color/yellow001"
+                android:fontFamily="@font/poppins_regular"/>
 
             <EditText
                 android:id="@+id/inpConfPassword"
@@ -82,7 +94,8 @@
                 android:inputType="textPassword"
                 android:background="@drawable/input_yellow"
                 android:minHeight="45dp"
-                app:backgroundTint="@color/yellow001" />
+                app:backgroundTint="@color/yellow001"
+                android:fontFamily="@font/poppins_regular" />
 
             <ProgressBar
                 android:id="@+id/pb_register"
@@ -95,7 +108,7 @@
                 android:id="@+id/btnRegister"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="200dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
@@ -103,7 +116,8 @@
                 android:background="@drawable/button_green"
                 android:text="Next"
                 android:textColor="@color/white"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:fontFamily="@font/poppins_regular"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -118,7 +132,8 @@
                     android:layout_height="wrap_content"
                     android:paddingRight="5dp"
                     android:text="Already have an account?"
-                    android:textSize="15dp"/>
+                    android:textSize="15dp"
+                    android:fontFamily="@font/poppins_regular"/>
 
                 <TextView
                     android:id="@+id/tvRegister"
@@ -126,7 +141,8 @@
                     android:layout_height="wrap_content"
                     android:text="Back to Login"
                     android:textSize="15dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/poppins_regular" />
             </LinearLayout>
 
         </LinearLayout>

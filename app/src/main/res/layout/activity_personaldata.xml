@@ -15,147 +15,146 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_gravity="top"
-        android:layout_margin="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/black_stroke_circel"
         app:srcCompat="@drawable/ic_back"
         app:tint="@color/black" />
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="10dp"
+        android:layout_gravity="center"
         android:layout_marginTop="0dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/shape_login"
-        android:elevation="10dp">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
+            android:text="Personal Data"
+            android:textAlignment="center"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/poppins_regular" />
 
-            android:orientation="vertical">
+        <EditText
+            android:id="@+id/inpFname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:padding="10dp"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"
+            android:fontFamily="@font/poppins_regular"/>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="20dp"
-                android:text="Personal Data"
-                android:textAlignment="center"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/inpLname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"
+            android:fontFamily="@font/poppins_regular"/>
 
-            <EditText
-                android:id="@+id/inpFname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:background="@drawable/input_yellow"
-                android:hint="First Name"
-                android:inputType="textPersonName"
-                android:minHeight="45dp"
-                android:padding="10dp"
-                app:backgroundTint="@color/yellow001" />
+        <EditText
+            android:id="@+id/inpBirth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:hint="Birthday"
+            android:inputType="date"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"
+            android:fontFamily="@font/poppins_regular"/>
 
-            <EditText
-                android:id="@+id/inpLname"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/input_yellow"
-                android:hint="Last Name"
-                android:inputType="textPersonName"
-                android:minHeight="45dp"
-                android:padding="10dp"
-                app:backgroundTint="@color/yellow001" />
+        <EditText
+            android:id="@+id/inpAddr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:hint="Address"
+            android:inputType="textNoSuggestions"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"
+            android:fontFamily="@font/poppins_regular"/>
 
-            <EditText
-                android:id="@+id/inpBirth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/input_yellow"
-                android:hint="Birthday"
-                android:inputType="date"
-                android:minHeight="45dp"
-                android:padding="10dp"
-                app:backgroundTint="@color/yellow001" />
+        <EditText
+            android:id="@+id/inpNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:hint="No. Handphone"
+            android:inputType="phone"
+            android:background="@drawable/input_yellow"
+            android:minHeight="45dp"
+            app:backgroundTint="@color/yellow001"
+            android:fontFamily="@font/poppins_regular"/>
 
-            <EditText
-                android:id="@+id/inpAddr"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/input_yellow"
-                android:hint="Address"
-                android:inputType="textNoSuggestions"
-                android:minHeight="45dp"
-                android:padding="10dp"
-                app:backgroundTint="@color/yellow001" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Gender:"
+            android:textSize="18sp"
+            android:fontFamily="@font/poppins_regular"
+            android:textStyle="bold"
+            />
 
-            <EditText
-                android:id="@+id/inpNo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/input_yellow"
-                android:hint="No. Handphone"
-                android:inputType="phone"
-                android:minHeight="45dp"
-                android:padding="10dp"
-                app:backgroundTint="@color/yellow001" />
+        <RadioGroup
+            android:id="@+id/radioBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="15dp">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RadioButton
+                android:id="@+id/radiofemale"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
+                android:text="Female"
                 android:background="@drawable/input_yellow"
                 android:minHeight="45dp"
-                android:padding="10dp"
-                android:text="Gender:"
-                android:textSize="16sp"
-                app:backgroundTint="@color/yellow001" />
+                app:background="@color/yellow001"
+                android:fontFamily="@font/poppins_regular"/>
 
-            <RadioGroup
-                android:id="@+id/radioBtn"
-                android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/radiomale"
+                android:layout_width="165dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <RadioButton
-                    android:id="@+id/radiofemale"
-                    android:layout_width="165dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:background="@drawable/input_yellow"
-                    android:minHeight="45dp"
-                    android:text="Female"
-                    app:background="@color/yellow001" />
-
-                <RadioButton
-                    android:id="@+id/radiomale"
-                    android:layout_width="165dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/input_yellow"
-                    android:minHeight="45dp"
-                    android:paddingHorizontal="4dp"
-                    android:text="Male"
-                    app:backgroundTint="@color/yellow001" />
-            </RadioGroup>
+                android:layout_gravity="left"
+                android:layout_marginStart="10dp"
+                android:text="Male"
+                android:background="@drawable/input_yellow"
+                android:minHeight="45dp"
+                app:backgroundTint="@color/yellow001"
+                android:fontFamily="@font/poppins_regular"/>
+        </RadioGroup>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -168,32 +167,31 @@
                     android:layout_gravity="left"
                     android:layout_marginHorizontal="15dp"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/input_yellow"
-                    android:minHeight="45dp"
-                    android:padding="10dp"
                     android:text="Profile Image:"
-                    android:textSize="16sp"
-                    app:backgroundTint="@color/yellow001" />
+                    android:textSize="18sp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:textStyle="bold"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/reg_ProfileImg"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginHorizontal="15dp"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <Button
                     android:id="@+id/btnRegSelectImg"
-                    android:layout_width="150dp"
+                    android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:layout_gravity="left"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginLeft="15dp"
-                    android:text="Add Image"
-                    android:background="@drawable/button_circle"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/input_yellow"
                     android:elevation="20dp"
-                    android:textSize="10sp" />
+                    android:text="Add Image"
+                    android:textAllCaps="false"
+                    android:textSize="18sp" />
 
             </RelativeLayout>
 
@@ -216,8 +214,6 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>
