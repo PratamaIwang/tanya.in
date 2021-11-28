@@ -9,20 +9,11 @@
     android:orientation="vertical"
     tools:context=".RegisterActivity">
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/imageView"-->
-    <!--        android:layout_width="218dp"-->
-    <!--        android:layout_height="218dp"-->
-    <!--        android:layout_gravity="center"-->
-    <!--        android:layout_marginTop="90dp"-->
-    <!--        android:src="@drawable/login"-->
-    <!--        tools:src="@tools:sample/avatars" />-->
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="match_parent"
-        android:layout_marginTop="350dp">
+        android:layout_marginTop="320dp">
 
         <LinearLayout
             android:layout_width="380dp"
