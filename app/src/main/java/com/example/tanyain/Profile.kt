@@ -88,8 +88,6 @@ class Profile : AppCompatActivity() {
         /*Read Data From Firebase Storage*/
         database.child("users").child(uid).get().addOnSuccessListener {
             var filename = it.child("imageId").value.toString().trim()
-            Toast.makeText(this,filename,Toast.LENGTH_LONG).show()
-            Log.i("Image Name: ", filename)
             val database_store = FirebaseStorage.getInstance().reference.child("users_images/$filename")
             val localfile = File.createTempFile("tempImage","jpg")
             database_store.getFile(localfile).addOnSuccessListener {

@@ -54,7 +54,6 @@ class QuestionActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-
             }
         })
 
@@ -76,19 +75,35 @@ class QuestionActivity : AppCompatActivity() {
                     var lName = it.child("lastName").value.toString().trim()
                     val id= maxid.plus(1).toString().trim()
 
-                    img_database.putFile(selectedPhoto!!)
-                    val question = Question( uid,fName+" "+lName,"Unsolved",category,desc,filename)
-                    database.child(id).setValue(question).addOnCompleteListener(this) { task ->
-                        if(task.isSuccessful){
-                            progressBar.visibility = View.GONE
-                            Toast.makeText(this,"Problem uploaded successfully!",Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this,DashActivity::class.java))
-                            finish()
-                        }else {
-                            progressBar.visibility = View.GONE
-                            Toast.makeText(this,"Problem upload failed! Try again",Toast.LENGTH_SHORT).show()
+                    if (selectedPhoto!= null){
+                        img_database.putFile(selectedPhoto!!)
+                        val question = Question( uid,fName+" "+lName,"Unsolved",category,desc,filename)
+                        database.child(id).setValue(question).addOnCompleteListener(this) { task ->
+                            if(task.isSuccessful){
+                                progressBar.visibility = View.GONE
+                                Toast.makeText(this,"Problem uploaded successfully!",Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this,DashActivity::class.java))
+                                finish()
+                            }else {
+                                progressBar.visibility = View.GONE
+                                Toast.makeText(this,"Problem upload failed! Try again",Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    }else if(selectedPhoto==null){
+                        val question = Question( uid,fName+" "+lName,"Unsolved",category,desc,null)
+                        database.child(id).setValue(question).addOnCompleteListener(this) { task ->
+                            if(task.isSuccessful){
+                                progressBar.visibility = View.GONE
+                                Toast.makeText(this,"Problem uploaded successfully!",Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this,DashActivity::class.java))
+                                finish()
+                            }else {
+                                progressBar.visibility = View.GONE
+                                Toast.makeText(this,"Problem upload failed! Try again",Toast.LENGTH_SHORT).show()
+                            }
                         }
                     }
+
                 }
         }
     }
