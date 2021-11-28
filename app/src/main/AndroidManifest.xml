@@ -13,9 +13,6 @@
             android:name=".RegisterActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
-            android:exported="true" />
-        <activity
             android:name=".Personaldata"
             android:exported="true" />
         <activity
@@ -31,7 +28,7 @@
             android:name=".makeQuestionActivity"
             android:exported="true" />
         <activity
-            android:name=".Question"
+            android:name=".QuestionActivity"
             android:exported="true" />
         <activity
             android:name=".Uploadimage"

@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -22,6 +23,8 @@ class DashActivity : AppCompatActivity() {
     private lateinit var nav_Name: TextView
     private lateinit var nav_Email: TextView
 
+    private lateinit var fab: FloatingActionButton
+
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
 
@@ -32,6 +35,11 @@ class DashActivity : AppCompatActivity() {
             startActivity(Intent(this, LoginActivity::class.java))
         }else{
             setContentView(R.layout.activity_dash)
+        }
+
+        fab = findViewById(R.id.fab1)
+        fab.setOnClickListener{
+            startActivity(Intent(this,QuestionActivity::class.java))
         }
 
         btnMenu = findViewById(R.id.menuBtn)
