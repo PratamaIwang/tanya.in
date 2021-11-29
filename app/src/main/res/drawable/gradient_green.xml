@@ -4,14 +4,8 @@
 
         <gradient
             android:startColor="@color/green004"
-            android:centerColor="@color/green003"
+            android:centerColor="@color/green002"
             android:endColor="@color/green001"
             android:angle="90" />
-
-        <padding
-            android:bottom="7dp"
-            android:left="7dp"
-            android:right="7dp"
-            android:top="7dp" />
 
 </shape>
