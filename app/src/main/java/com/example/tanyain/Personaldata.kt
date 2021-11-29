@@ -105,4 +105,8 @@ class Personaldata : AppCompatActivity() {
             selectedPhoto = uri
         }
     }
+
+    override fun onBackPressed() {
+        Toast.makeText(this,"Please fill out the form first!", Toast.LENGTH_SHORT).show()
+    }
 }

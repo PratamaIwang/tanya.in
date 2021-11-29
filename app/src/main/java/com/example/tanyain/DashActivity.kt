@@ -57,7 +57,7 @@ class DashActivity : AppCompatActivity() {
         recyclerView.setHasFixedSize(true)
 
         question = arrayListOf<Question>()
-        getUserData()
+        getQuestionData()
 
         /*Floating Button*/
         fab = findViewById(R.id.fab1)
@@ -99,9 +99,12 @@ class DashActivity : AppCompatActivity() {
                 }
         }
 
+
+
     }
 
-    private fun getUserData() {
+    /*Get Question Data*/
+    private fun getQuestionData() {
         question_db = FirebaseDatabase.getInstance().getReference("tanyain").child("question")
 
         question_db.addValueEventListener(object : ValueEventListener{
@@ -111,13 +114,11 @@ class DashActivity : AppCompatActivity() {
                         val question_data = questionSnapshot.getValue(Question::class.java)
                         question.add(question_data!!)
                     }
-                    recyclerView.adapter = QuestionsAdapter(question)
+                    recyclerView.adapter = QuestionsAdapter(question,this@DashActivity)
                 }
-            }
+            }override fun onCancelled(error: DatabaseError) {
 
-            override fun onCancelled(error: DatabaseError) {
             }
-
         })
     }
 

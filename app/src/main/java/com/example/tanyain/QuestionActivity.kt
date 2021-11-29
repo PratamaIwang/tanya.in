@@ -3,7 +3,6 @@ package com.example.tanyain
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -11,13 +10,11 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
-import kotlin.collections.ArrayList
 
 class QuestionActivity : AppCompatActivity() {
 
@@ -32,7 +29,6 @@ class QuestionActivity : AppCompatActivity() {
 
     private var maxid: Long = 0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_question)
@@ -43,6 +39,8 @@ class QuestionActivity : AppCompatActivity() {
         btnUpload = findViewById(R.id.btnbrowse)
         profileImg = findViewById(R.id.questionImg)
         progressBar = findViewById(R.id.pb_Question)
+
+        Toast.makeText(this,maxid.toString(),Toast.LENGTH_LONG).show()
 
         var uid: String = FirebaseAuth.getInstance().currentUser!!.uid
         database = FirebaseDatabase.getInstance().getReference("tanyain").child("question")
@@ -66,7 +64,7 @@ class QuestionActivity : AppCompatActivity() {
         btnUpload.setOnClickListener{
             progressBar.visibility = View.VISIBLE
             val filename = UUID.randomUUID().toString()
-            val img_database = FirebaseStorage.getInstance().getReference("/question_images/$filename")
+            val img_database = FirebaseStorage.getInstance().getReference("/questions_images/$filename")
             var category = category.text.toString().trim()
             var desc = problemDesc.text.toString().trim()
             FirebaseDatabase.getInstance().getReference("tanyain").child("users").child(uid).get()
@@ -77,7 +75,7 @@ class QuestionActivity : AppCompatActivity() {
 
                     if (selectedPhoto!= null){
                         img_database.putFile(selectedPhoto!!)
-                        val question = Question( uid,fName+" "+lName,"Unsolved",category,desc,filename)
+                        val question = Question(maxid,uid,fName+" "+lName,"Unsolved",category,desc,filename)
                         database.child(id).setValue(question).addOnCompleteListener(this) { task ->
                             if(task.isSuccessful){
                                 progressBar.visibility = View.GONE
@@ -90,7 +88,7 @@ class QuestionActivity : AppCompatActivity() {
                             }
                         }
                     }else if(selectedPhoto==null){
-                        val question = Question( uid,fName+" "+lName,"Unsolved",category,desc,null)
+                        val question = Question( maxid,uid,fName+" "+lName,"Unsolved",category,desc,null)
                         database.child(id).setValue(question).addOnCompleteListener(this) { task ->
                             if(task.isSuccessful){
                                 progressBar.visibility = View.GONE
