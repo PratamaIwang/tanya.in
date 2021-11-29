@@ -5,10 +5,19 @@
       <map>
         <entry key="..\:/Users/Iwang Pratama/AndroidStudioProjects/tanyain/app/src/main/res/layout/activity_main.xml" value="0.23641304347826086" />
         <entry key="..\:/Users/asus/Documents/PSI/tanya.in/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
+        <entry key="app/src/main/res/drawable-v24/card_comment.xml" value="0.21481481481481482" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/bg_1.xml" value="0.17592592592592593" />
+        <entry key="app/src/main/res/drawable/bg_login.xml" value="0.17592592592592593" />
+        <entry key="app/src/main/res/drawable/black_stroke_circel.xml" value="0.21481481481481482" />
         <entry key="app/src/main/res/drawable/button_rounded.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/gradient_green.xml" value="0.12083333333333333" />
         <entry key="app/src/main/res/drawable/header_dash.xml" value="0.17175925925925925" />
+        <entry key="app/src/main/res/drawable/header_profile.xml" value="0.17175925925925925" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.21481481481481482" />
+        <entry key="app/src/main/res/drawable/ic_dashboard.xml" value="0.17592592592592593" />
         <entry key="app/src/main/res/drawable/ic_email.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/ic_image.xml" value="0.15462962962962962" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/ic_profil.xml" value="0.17083333333333334" />
@@ -19,13 +28,17 @@
         <entry key="app/src/main/res/drawable/shape_profil2.xml" value="0.23703703703703705" />
         <entry key="app/src/main/res/drawable/white_card.xml" value="0.12708333333333333" />
         <entry key="app/src/main/res/drawable/white_stroke_circel.xml" value="0.12708333333333333" />
+        <entry key="app/src/main/res/drawable/white_stroke_profile.xml" value="0.17175925925925925" />
         <entry key="app/src/main/res/layout-w1240dp/activity_login.xml" value="0.14491298527443106" />
         <entry key="app/src/main/res/layout-w936dp/activity_login.xml" value="0.13046448087431695" />
+        <entry key="app/src/main/res/layout/activity_comment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_dash.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/activity_discuss.xml" value="0.20046296296296295" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.10037807947412393" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_profil.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.22407407407407406" />
+        <entry key="app/src/main/res/layout/activity_question.xml" value="0.20046296296296295" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.165" />
       </map>
     </option>
