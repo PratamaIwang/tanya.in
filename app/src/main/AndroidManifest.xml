@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/TanyainThemeNoActionBar">
         <activity
+            android:name=".MyCommentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MyQuestionActivity"
+            android:exported="true" />
+        <activity
             android:name=".Comment"
             android:exported="true" />
         <activity
