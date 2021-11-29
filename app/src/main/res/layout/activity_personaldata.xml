@@ -10,27 +10,35 @@
     android:orientation="vertical"
     tools:context=".Personaldata">
 
+    <ImageView
+        android:id="@+id/Backbtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/white_stroke_circel"
+        android:padding="10dp"
+        app:srcCompat="@drawable/ic_back"
+        app:tint="@color/white" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="10dp"
         android:background="@drawable/shape_login"
         android:elevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="20dp"
+                android:layout_margin="10dp"
                 android:text="Personal Data"
                 android:textAlignment="center"
                 android:textSize="25sp"
@@ -99,8 +107,7 @@
                 android:hint="No. Handphone"
                 android:inputType="phone"
                 android:minHeight="45dp"
-                android:padding="10dp"
-                app:backgroundTint="@color/yellow001" />
+                android:padding="10dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -108,19 +115,15 @@
                 android:layout_gravity="left"
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/input_yellow"
-                android:minHeight="45dp"
-                android:padding="10dp"
                 android:text="Gender:"
-                android:textSize="16sp"
-                app:backgroundTint="@color/yellow001" />
+                android:textSize="18sp" />
 
             <RadioGroup
                 android:id="@+id/radioBtn"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="35dp"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <RadioButton
@@ -129,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:background="@drawable/input_yellow"
-                    android:minHeight="45dp"
+                    android:minHeight="40dp"
                     android:text="Female"
                     app:background="@color/yellow001" />
 
@@ -139,50 +142,54 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:layout_marginHorizontal="10dp"
-                    android:layout_marginTop="10dp"
                     android:background="@drawable/input_yellow"
-                    android:minHeight="45dp"
-                    android:paddingHorizontal="4dp"
+                    android:minHeight="40dp"
                     android:text="Male"
                     app:backgroundTint="@color/yellow001" />
             </RadioGroup>
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Add Image:"
+                android:textSize="18sp" />
+
             <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp">
 
-                <TextView
-                    android:id="@+id/textProfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/input_yellow"
-                    android:minHeight="45dp"
-                    android:padding="10dp"
-                    android:text="Profile Image:"
-                    android:textSize="16sp"
-                    app:backgroundTint="@color/yellow001" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/comment2"
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    app:cardBackgroundColor="@color/yellow001"
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="15dp"
+                    app:cardMaxElevation="12dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/reg_ProfileImg"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="60dp"
-                    android:layout_marginLeft="15dp"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/reg_ProfileImg"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="20dp"
+                        android:src="@drawable/ic_addimage" />
 
-                <Button
-                    android:id="@+id/btnRegSelectImg"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="left"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="60dp"
-                    android:background="@drawable/button_circle"
-                    android:elevation="20dp"
-                    android:textSize="10sp" />
+                    <Button
+                        android:id="@+id/btnRegSelectImg"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/ic_addimage"
+                        android:elevation="20dp" />
+                </androidx.cardview.widget.CardView>
 
             </RelativeLayout>
 
