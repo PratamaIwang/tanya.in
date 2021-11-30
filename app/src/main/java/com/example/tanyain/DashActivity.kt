@@ -1,6 +1,7 @@
 package com.example.tanyain
 
 import android.content.Intent
+import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.File
 
 class DashActivity : AppCompatActivity() {
 
@@ -25,6 +28,7 @@ class DashActivity : AppCompatActivity() {
     private lateinit var header: View
     private lateinit var nav_Name: TextView
     private lateinit var nav_Email: TextView
+    private lateinit var nav_profilePic: ImageView
 
     private lateinit var fab: FloatingActionButton
 
@@ -88,21 +92,25 @@ class DashActivity : AppCompatActivity() {
         if(uid!=null){
             nav_Name = header.findViewById(R.id.nav_nameProfile)
             nav_Email = header.findViewById(R.id.nav_emailProfile)
+            nav_profilePic = header.findViewById(R.id.nav_imageProfile)
             database.child("users").child(uid).get()
                 .addOnSuccessListener {
                     var fName = it.child("firstName").value.toString().trim()
                     var lName = it.child("lastName").value.toString().trim()
                     var email = it.child("email").value.toString().trim()
-
+                    var filename = it.child("imageId").value.toString().trim()
+                    val database_store = FirebaseStorage.getInstance().reference.child("users_images/$filename")
+                    val localfile = File.createTempFile("tempImage","jpg")
+                    database_store.getFile(localfile).addOnSuccessListener {
+                        val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                        nav_profilePic.setImageBitmap(bitmap)
+                    }
                     nav_Name.setText(fName.plus(" ").plus(lName))
                     nav_Email.setText(email)
                 }
         }
 
-
-
     }
-
     /*Get Question Data*/
     private fun getQuestionData() {
         question_db = FirebaseDatabase.getInstance().getReference("tanyain").child("question")
