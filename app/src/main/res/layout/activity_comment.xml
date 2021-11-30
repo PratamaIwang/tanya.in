@@ -29,13 +29,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
+                android:fontFamily="@font/poppins_regular"
                 android:gravity="left"
                 android:paddingStart="10dp"
-                android:text="Add Your Comment"
+                android:text="Add Your Answer"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppins_regular"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -60,14 +60,14 @@
                     android:id="@+id/info_text3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
                     android:layout_marginHorizontal="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:fontFamily="@font/poppins_regular"
+                    android:text="Answer"
                     android:textAlignment="center"
-                    android:text="Comment"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:ignore="HardcodedText"
-                    android:fontFamily="@font/poppins_regular"/>
+                    tools:ignore="HardcodedText" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/comment3"
@@ -87,7 +87,8 @@
                         android:layout_height="200dp"
                         android:backgroundTint="@color/yellow001"
                         android:gravity="start"
-                        android:hint="Write yout comment here.."
+                        android:hint="Write your answer here.."
+                        android:fontFamily="@font/poppins_regular"
                         android:padding="10dp" />
                 </androidx.cardview.widget.CardView>
             </androidx.cardview.widget.CardView>

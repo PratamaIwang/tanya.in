@@ -6,20 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
-    android:fontFamily="@font/poppins"
     android:background="@drawable/questions_item">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginStart="5dp"
         android:text="Answer"
-        android:textSize="28dp"
-        android:textStyle="bold"/>
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/poppins_regular"/>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="2dp"
         android:background="@color/yellow003"/>
 
     <LinearLayout
@@ -47,14 +47,16 @@
                 android:layout_height="wrap_content"
                 android:text="Nama"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/poppins_regular"/>
 
             <TextView
                 android:id="@+id/rvAnswer_Date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="Tanggal"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins_regular"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -65,8 +67,9 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="10dp"
         android:layout_marginHorizontal="10dp"
-        android:textSize="20dp"
-        android:text="Isi jawabannya apa?"/>
+        android:textSize="18sp"
+        android:text="Isi jawabannya apa?"
+        android:fontFamily="@font/poppins_regular"/>
 
 
     <ImageView
