@@ -20,7 +20,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var inpEmailReg: EditText
     private lateinit var inpPasswordReg: EditText
     private lateinit var inpConfPassword: EditText
-    private lateinit var register: TextView
+
     private lateinit var btnRegister: Button
     private lateinit var btLogin: TextView
 
@@ -36,7 +36,6 @@ class RegisterActivity : AppCompatActivity() {
         inpEmailReg = findViewById(R.id.inpEmailReg)
         inpPasswordReg = findViewById(R.id.inpPasswordReg)
         inpConfPassword = findViewById(R.id.inpConfPassword)
-        register = findViewById(R.id.tvRegister)
         btnRegister = findViewById(R.id.btnRegister)
         progressBar = findViewById(R.id.pb_register)
         btLogin = findViewById(R.id.tvRegister)
@@ -99,6 +98,7 @@ class RegisterActivity : AppCompatActivity() {
         }
         btLogin.setOnClickListener{
             startActivity(Intent(this,LoginActivity::class.java))
+            finish()
         }
     }
 }
