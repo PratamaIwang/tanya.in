@@ -48,6 +48,16 @@ class Comment : AppCompatActivity() {
             getContent.launch("image/*")
         }
 
+        val id = getId
+        database.child(id.toString()).child("answer").addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                maxid = snapshot.childrenCount
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
         uploadAnswerBtn.setOnClickListener{
             val filename = UUID.randomUUID().toString()
             val uid = FirebaseAuth.getInstance().currentUser!!.uid
@@ -66,25 +76,13 @@ class Comment : AppCompatActivity() {
                 .addOnSuccessListener {
                     var fName = it.child("firstName").value.toString().trim()
                     var lName = it.child("lastName").value.toString().trim()
-                    val id = getId
-
-                    database.child(id.toString()).child("answer").addValueEventListener(object : ValueEventListener{
-                        override fun onDataChange(snapshot: DataSnapshot) {
-                            maxid = snapshot.childrenCount
-                        }
-
-                        override fun onCancelled(error: DatabaseError) {
-                        }
-                    })
-
                     if(selectedPhoto!=null){
-                        image_database.putFile(selectedPhoto!!)
-                        val answer = Answer(id.toString(),desc,filename,uid,fName+" "+lName)
-
+                        val answer = Answer(id.toString(),maxid.toString(),desc,filename,uid,fName+" "+lName)
                         database.child(id.toString()).child("answer").child(maxid.plus(1).toString().trim()).setValue(answer)
                             .addOnCompleteListener(this){ task ->
                                 if(task.isSuccessful){
                                     progressBar.visibility = View.GONE
+                                    image_database.putFile(selectedPhoto!!)
                                     Toast.makeText(this,"Answer uploaded successfully!",Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this,DashActivity::class.java))
                                     finish()
@@ -94,7 +92,7 @@ class Comment : AppCompatActivity() {
                                 }
                             }
                     }else if(selectedPhoto==null){
-                        val answer = Answer(id.toString(),desc,null,uid,fName+" "+lName)
+                        val answer = Answer(id.toString(),maxid.toString(),desc,null,uid,fName+" "+lName)
                         database.child(id.toString()).child("answer").child(maxid.plus(1).toString().trim()).setValue(answer)
                             .addOnCompleteListener(this){ task ->
                                 if(task.isSuccessful){

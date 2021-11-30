@@ -12,6 +12,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
@@ -26,6 +28,9 @@ class discussActivity : AppCompatActivity() {
     private lateinit var profileImg: ImageView
     private lateinit var questionImg: ImageView
     private lateinit var backButton: ImageView
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var answer: ArrayList<Answer>
 
     private lateinit var addAnswer: FloatingActionButton
 
@@ -43,6 +48,8 @@ class discussActivity : AppCompatActivity() {
         profileImg = findViewById(R.id.discuss_Profilepic)
         questionImg = findViewById(R.id.discuss_QuestionImg)
 
+        recyclerView = findViewById(R.id.rv_Discuss)
+
         addAnswer = findViewById(R.id.fabAnswer)
 
         /*Ambil Value Intent Extra*/
@@ -53,6 +60,30 @@ class discussActivity : AppCompatActivity() {
         val imageUUID = intent.getStringExtra("imageUUID")
         val userId = intent.getStringExtra("userId")
         val getId = intent.getStringExtra("getId")
+
+        /*Recycler View*/
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+
+        answer = arrayListOf<Answer>()
+
+        var answer_db = FirebaseDatabase.getInstance().getReference("tanyain")
+            .child("question").child(getId.toString()).child("answer")
+        answer_db.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    for (answerSnapshot in snapshot.children){
+                        val answerData = answerSnapshot.getValue(Answer::class.java)
+                        answer.add(answerData!!)
+                    }
+                    recyclerView.adapter = AnswerAdapter(answer,this@discussActivity)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
 
         /*Set Value Display*/
         nama.text = name
@@ -98,5 +129,9 @@ class discussActivity : AppCompatActivity() {
         backButton.setOnClickListener{
             onBackPressed()
         }
+    }
+
+    /*Get Answer Data*/
+    private fun getAnswerData() {
     }
 }
