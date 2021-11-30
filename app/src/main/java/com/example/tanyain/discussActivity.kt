@@ -1,6 +1,7 @@
 package com.example.tanyain
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import java.io.File
@@ -23,8 +25,9 @@ class discussActivity : AppCompatActivity() {
 
     private lateinit var profileImg: ImageView
     private lateinit var questionImg: ImageView
-
     private lateinit var backButton: ImageView
+
+    private lateinit var addAnswer: FloatingActionButton
 
     private lateinit var database: DatabaseReference
 
@@ -37,10 +40,12 @@ class discussActivity : AppCompatActivity() {
         desc = findViewById(R.id.discuss_QuestionDesc)
 
         backButton = findViewById(R.id.discuss_Backbtn)
-
         profileImg = findViewById(R.id.discuss_Profilepic)
         questionImg = findViewById(R.id.discuss_QuestionImg)
 
+        addAnswer = findViewById(R.id.fabAnswer)
+
+        /*Ambil Value Intent Extra*/
         val intent = intent
         val name = intent.getStringExtra("name")
         val category = intent.getStringExtra("category")
@@ -49,14 +54,21 @@ class discussActivity : AppCompatActivity() {
         val userId = intent.getStringExtra("userId")
         val getId = intent.getStringExtra("getId")
 
+        /*Set Value Display*/
         nama.text = name
         kategori.text = category
         desc.text = questionDesc
 
-        val uid = userId
+        /*Add Answer On Click Listener*/
+        addAnswer.setOnClickListener{
+            val intent = Intent(this,Comment::class.java)
+            intent.putExtra("getId", getId)
+            startActivity(intent)
+        }
 
         /*Firebase Storage Access*/
         /*User Image*/
+        val uid = userId
         database = FirebaseDatabase.getInstance().getReference("tanyain").child("users")
         database.child(uid.toString()).get().addOnSuccessListener {
             var filename = it.child("imageId").value.toString().trim()
@@ -67,7 +79,6 @@ class discussActivity : AppCompatActivity() {
                 profileImg.setImageBitmap(bitmap)
             }
         }
-
         /*Question Image*/
         if (imageUUID != null) {
             questionImg.visibility = View.VISIBLE

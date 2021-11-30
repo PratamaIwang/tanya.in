@@ -38,6 +38,7 @@ class Profile : AppCompatActivity() {
     private lateinit var header: View
     private lateinit var nav_Name: TextView
     private lateinit var nav_Email: TextView
+    private lateinit var nav_profilePic: ImageView
 
     private lateinit var mAuth: FirebaseAuth
     private lateinit var database: DatabaseReference
@@ -62,12 +63,14 @@ class Profile : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         val nav_view: NavigationView = findViewById(R.id.nav_view)
 
+        var uid: String = FirebaseAuth.getInstance().currentUser!!.uid
+
+        /*Navigation Menu*/
         btnMenu.setOnClickListener{
             if(!drawerLayout.isDrawerOpen(GravityCompat.START)){
                 drawerLayout.openDrawer(Gravity.START)
             }
         }
-
         nav_view.setNavigationItemSelectedListener {
             var id = it.itemId
             if (id==R.id.nav_home){
@@ -82,8 +85,28 @@ class Profile : AppCompatActivity() {
             true
         }
 
+        header=nav_view.getHeaderView(0)
 
-        var uid: String = FirebaseAuth.getInstance().currentUser!!.uid
+        if(uid!=null){
+            nav_Name = header.findViewById(R.id.nav_nameProfile)
+            nav_Email = header.findViewById(R.id.nav_emailProfile)
+            nav_profilePic = header.findViewById(R.id.nav_imageProfile)
+            database.child("users").child(uid).get()
+                .addOnSuccessListener {
+                    var fName = it.child("firstName").value.toString().trim()
+                    var lName = it.child("lastName").value.toString().trim()
+                    var email = it.child("email").value.toString().trim()
+                    var filename = it.child("imageId").value.toString().trim()
+                    val database_store = FirebaseStorage.getInstance().reference.child("users_images/$filename")
+                    val localfile = File.createTempFile("tempImage","jpg")
+                    database_store.getFile(localfile).addOnSuccessListener {
+                        val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                        nav_profilePic.setImageBitmap(bitmap)
+                    }
+                    nav_Name.setText(fName.plus(" ").plus(lName))
+                    nav_Email.setText(email)
+                }
+        }
 
         /*Read Data From Firebase Storage*/
         database.child("users").child(uid).get().addOnSuccessListener {
@@ -101,31 +124,16 @@ class Profile : AppCompatActivity() {
         /*Read Data From Firebase Realtime Database*/
         database.child("users").child(uid).get()
             .addOnSuccessListener {
-            var fName = it.child("firstName").value.toString().trim()
-            var lName = it.child("lastName").value.toString().trim()
-            var gender = it.child("gender").value.toString().trim()
-            var email = it.child("email").value.toString().trim()
+                var fName = it.child("firstName").value.toString().trim()
+                var lName = it.child("lastName").value.toString().trim()
+                var gender = it.child("gender").value.toString().trim()
+                var email = it.child("email").value.toString().trim()
 
-            dispName.setText(fName.plus(" ").plus(lName))
-            dispGender.setText(gender)
-            dispEmail.setText(email)
-        }
+                dispName.setText(fName.plus(" ").plus(lName))
+                dispGender.setText(gender)
+                dispEmail.setText(email)
+            }
 
-        header=nav_view.getHeaderView(0)
-
-        if(uid!=null){
-            nav_Name = header.findViewById(R.id.nav_nameProfile)
-            nav_Email = header.findViewById(R.id.nav_emailProfile)
-            database.child("users").child(uid).get()
-                .addOnSuccessListener {
-                    var fName = it.child("firstName").value.toString().trim()
-                    var lName = it.child("lastName").value.toString().trim()
-                    var email = it.child("email").value.toString().trim()
-
-                    nav_Name.setText(fName.plus(" ").plus(lName))
-                    nav_Email.setText(email)
-                }
-        }
     }
 
 }
