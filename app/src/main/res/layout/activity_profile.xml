@@ -14,7 +14,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/background"
+        android:background="@drawable/bg_2"
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
@@ -68,7 +68,7 @@
                 android:layout_marginTop="100dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
-                android:text="Full Name"
+                android:text="Iwang Bundaran UB"
                 android:textColor="#545151"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -90,7 +90,7 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_italic"
                 android:gravity="center"
-                android:text="Email"
+                android:text="iwangbundbund@gmail.com"
                 android:textSize="15dp"
                 android:textStyle="normal" />
 
@@ -231,8 +231,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_below="@+id/dashboard"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
+            android:layout_marginStart="110dp"
             android:layout_marginTop="40dp"
             android:elevation="20dp"
             tools:srcCompat="@tools:sample/avatars" />
