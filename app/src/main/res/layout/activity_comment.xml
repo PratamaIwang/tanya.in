@@ -16,7 +16,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/Backbtn"
+                android:id="@+id/addcomment_BackBtn"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="10dp"
@@ -82,7 +82,7 @@
                     app:cardCornerRadius="12dp">
 
                     <EditText
-                        android:id="@+id/textView5"
+                        android:id="@+id/answerDesc"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:backgroundTint="@color/yellow001"
@@ -127,38 +127,47 @@
                     app:cardCornerRadius="5dp">
 
                     <ImageView
-                        android:id="@+id/reg_ProfileImg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:id="@+id/answerImg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:padding="5dp"
                         android:layout_margin="20dp"
                         android:src="@drawable/ic_addimage" />
 
                     <Button
-                        android:id="@+id/btnRegSelectImg"
+                        android:id="@+id/answerImgAdd"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
                         android:layout_gravity="center"
                         android:layout_margin="20dp"
                         android:background="@drawable/ic_addimage"
                         android:elevation="20dp" />
+
                 </androidx.cardview.widget.CardView>
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/buttoncomment"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/button_yellow"
-            android:text="Upload"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:fontFamily="@font/poppins_regular"
-            android:textAllCaps="false"/>
+    <ProgressBar
+        android:id="@+id/progressBarAddAnswer"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/uploadBtn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/button_yellow"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Upload"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 </LinearLayout>

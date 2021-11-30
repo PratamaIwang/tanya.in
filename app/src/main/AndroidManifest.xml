@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/TanyainThemeNoActionBar">
         <activity
-            android:name=".MyCommentActivity"
-            android:exported="true" />
-        <activity
             android:name=".MyQuestionActivity"
             android:exported="true" />
         <activity
@@ -37,16 +34,7 @@
             android:name=".discussActivity"
             android:exported="true" />
         <activity
-            android:name=".makeQuestionActivity"
-            android:exported="true" />
-        <activity
             android:name=".QuestionActivity"
-            android:exported="true" />
-        <activity
-            android:name=".Uploadimage"
-            android:exported="true" />
-        <activity
-            android:name=".Browseimage"
             android:exported="true" />
         <activity
             android:name=".SplashScreen"

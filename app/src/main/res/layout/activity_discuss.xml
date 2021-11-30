@@ -129,12 +129,12 @@
         </androidx.recyclerview.widget.RecyclerView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab1"
+            android:id="@+id/fabAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/headerDiscuss"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="554dp"
+            android:layout_marginTop="580dp"
             android:layout_marginEnd="35dp"
             android:backgroundTint="@color/green002"
             android:src="@drawable/ic_komen"

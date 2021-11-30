@@ -10,46 +10,46 @@
     tools:openDrawer="start"
     tools:context=".Profile">
 
-<!--    <RelativeLayout-->
-<!--        android:id="@+id/linearLayout"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@drawable/background"-->
-<!--        android:orientation="vertical"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        tools:ignore="MissingConstraints">-->
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
 
-<!--        <LinearLayout-->
-<!--            android:id="@+id/dashboard"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="67dp"-->
-<!--            android:background="@drawable/header_dash"-->
-<!--            android:elevation="20dp"-->
-<!--            android:gravity="center_vertical"-->
-<!--            android:orientation="horizontal">-->
+        <LinearLayout
+            android:id="@+id/dashboard"
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:background="@drawable/header_dash"
+            android:elevation="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-<!--            <ImageView-->
-<!--                android:id="@+id/menuBtn"-->
-<!--                android:layout_width="40dp"-->
-<!--                android:layout_height="40dp"-->
-<!--                android:layout_marginLeft="10dp"-->
-<!--                android:background="@drawable/white_stroke_circel"-->
-<!--                android:padding="10dp"-->
-<!--                app:srcCompat="@drawable/ic_menu"-->
-<!--                app:tint="@color/white" />-->
+            <ImageView
+                android:id="@+id/menuBtn"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/white_stroke_circel"
+                android:padding="10dp"
+                app:srcCompat="@drawable/ic_menu"
+                app:tint="@color/white" />
 
-<!--            <TextView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginRight="50dp"-->
-<!--                android:gravity="center"-->
-<!--                android:text="Profile"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:textSize="18dp"-->
-<!--                android:textStyle="bold" />-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:gravity="center"
+                android:text="Profile"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
 
-<!--        </LinearLayout>-->
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout4"
@@ -68,7 +68,7 @@
                 android:layout_marginTop="100dp"
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center"
-                android:text="Iwang Bundaran UB"
+                android:text="Full Name"
                 android:textColor="#545151"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -90,7 +90,7 @@
                 android:layout_marginTop="4dp"
                 android:fontFamily="@font/poppins_italic"
                 android:gravity="center"
-                android:text="iwangbundbund@gmail.com"
+                android:text="Email"
                 android:textSize="15dp"
                 android:textStyle="normal" />
 
@@ -231,12 +231,13 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_below="@+id/dashboard"
-            android:layout_marginStart="110dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginTop="40dp"
             android:elevation="20dp"
             tools:srcCompat="@tools:sample/avatars" />
 
-<!--    </RelativeLayout>-->
+    </RelativeLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
