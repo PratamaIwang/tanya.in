@@ -8,5 +8,7 @@ data class User (val email: String? = null
                  , val address: String? = null
                  , val noHP: String? = null
                  , val gender: String? = null
-                 , val imageId: String? = null){
+                 , val imageId: String? = null
+                 , val totalQuestion: Int
+                 , val totalAnswer: Int){
 }

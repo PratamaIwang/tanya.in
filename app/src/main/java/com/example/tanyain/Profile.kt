@@ -31,7 +31,10 @@ class Profile : AppCompatActivity() {
     private lateinit var dispGender: TextView
     private lateinit var dispEmail: TextView
 
+    private lateinit var totalQuestion: TextView
+
     private lateinit var btnEdit: Button
+
     private lateinit var btnMenu: ImageView
     private lateinit var profileImg: ImageView
 
@@ -51,6 +54,8 @@ class Profile : AppCompatActivity() {
         dispName = findViewById(R.id.nameProfile)
         dispGender = findViewById(R.id.genderProfile)
         dispEmail = findViewById(R.id.emailProfile)
+
+        totalQuestion = findViewById(R.id.profileQuestion)
 
         btnMenu = findViewById(R.id.menuBtn)
         btnEdit = findViewById(R.id.btnEditProfile)
@@ -128,12 +133,18 @@ class Profile : AppCompatActivity() {
                 var lName = it.child("lastName").value.toString().trim()
                 var gender = it.child("gender").value.toString().trim()
                 var email = it.child("email").value.toString().trim()
+                var question = it.child("totalQuestion").value.toString().trim()
 
                 dispName.setText(fName.plus(" ").plus(lName))
                 dispGender.setText(gender)
                 dispEmail.setText(email)
+                totalQuestion.setText(question)
             }
 
+        /*Edit Profile Button*/
+        btnEdit.setOnClickListener {
+            startActivity(Intent(this, Personaldata::class.java))
+        }
     }
 
 }
