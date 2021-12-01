@@ -80,7 +80,7 @@
                 android:layout_height="45dp"
                 android:padding="10dp"
                 android:gravity="start"
-                android:hint="Write the language here..."
+                android:hint="Write the programming language here..."
                 android:backgroundTint="@color/yellow001"/>
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
