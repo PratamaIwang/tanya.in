@@ -75,9 +75,9 @@
     <ImageView
         android:id="@+id/rvAnswer_Image"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         android:layout_marginVertical="5dp"
         android:layout_marginHorizontal="10dp"
-        android:visibility="gone"/>
+        />
 
 </LinearLayout>

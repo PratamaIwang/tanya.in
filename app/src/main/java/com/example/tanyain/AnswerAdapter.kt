@@ -37,12 +37,12 @@ class AnswerAdapter (private val answerList : ArrayList<Answer>, context: Contex
         val currentitem = answerList[position]
         val uid = currentitem.userId
         val questionId = currentitem.getQuestionId
-        val answerId = currentitem.getAnswerId
+        val answerIdString = currentitem.getAnswerId
+        val answerId = answerIdString?.toLong()?.plus(1)
 
         var user_database = FirebaseDatabase.getInstance().getReference("tanyain").child("users")
         user_database.child(uid.toString()).get().addOnSuccessListener {
             var filename = it.child("imageId").value.toString().trim()
-            Log.i("imageid", filename)
             val database_store = FirebaseStorage.getInstance().reference.child("users_images/$filename")
             val localfile = File.createTempFile("tempImage","jpg")
             database_store.getFile(localfile).addOnSuccessListener {
@@ -56,13 +56,15 @@ class AnswerAdapter (private val answerList : ArrayList<Answer>, context: Contex
             var filename = it.child("answerImageUUID").value.toString().trim()
             if (filename!="null"){
                 holder.answerImg.visibility = View.VISIBLE
-                Log.i("imageid", filename)
+                Log.i("test", filename)
                 val database_store = FirebaseStorage.getInstance().reference.child("answers_images/$filename")
                 val localfile = File.createTempFile("tempImage","jpg")
                 database_store.getFile(localfile).addOnSuccessListener {
                     val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
                     holder.answerImg.setImageBitmap(bitmap)
                 }
+            }else{
+                holder.answerImg.visibility = View.GONE
             }
         }
 

@@ -71,7 +71,7 @@ class Comment : AppCompatActivity() {
             progressBar.visibility = View.VISIBLE
 
             /*Database Instace*/
-            val image_database = FirebaseStorage.getInstance().getReference("/answers_images$filename")
+            val image_database = FirebaseStorage.getInstance().getReference("/answers_images/$filename")
             FirebaseDatabase.getInstance().getReference("tanyain").child("users").child(uid).get()
                 .addOnSuccessListener {
                     var fName = it.child("firstName").value.toString().trim()
