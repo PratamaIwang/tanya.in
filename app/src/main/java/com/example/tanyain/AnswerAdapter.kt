@@ -34,7 +34,7 @@ class AnswerAdapter (private val answerList : ArrayList<Answer>, context: Contex
     }
 
     override fun onBindViewHolder(holder: AnswerVHold, position: Int) {
-        val currentitem = answerList[position]
+        val currentitem = answerList.reversed()[position]
         val uid = currentitem.userId
         val questionId = currentitem.getQuestionId
         val answerIdString = currentitem.getAnswerId

@@ -63,7 +63,7 @@
                     android:layout_marginVertical="10dp"
                     android:layout_marginHorizontal="10dp"
                     android:textAlignment="center"
-                    android:text="Comment"
+                    android:text="Answer"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:ignore="HardcodedText"
@@ -87,7 +87,7 @@
                         android:layout_height="200dp"
                         android:backgroundTint="@color/yellow001"
                         android:gravity="start"
-                        android:hint="Write yout comment here.."
+                        android:hint="Write yout answer here.."
                         android:padding="10dp" />
                 </androidx.cardview.widget.CardView>
             </androidx.cardview.widget.CardView>

@@ -30,7 +30,7 @@ class QuestionsAdapter (private val questionList : ArrayList<Question>, context:
 
     override fun onBindViewHolder(holder: DataVHold, position: Int) {
 
-        val currentitem = questionList[position]
+        val currentitem = questionList.reversed()[position]
         val uid = currentitem.userId
 
         database = FirebaseDatabase.getInstance().getReference("tanyain").child("users")
