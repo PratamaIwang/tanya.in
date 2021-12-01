@@ -5,12 +5,10 @@
     android:background="@drawable/bg_1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="0dp"
-    android:layout_marginRight="0dp"
     android:orientation="vertical"
     tools:context=".Personaldata">
 
-    <ImageView
+<!--    <ImageView
         android:id="@+id/Backbtn"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -19,13 +17,14 @@
         android:background="@drawable/white_stroke_circel"
         android:padding="10dp"
         app:srcCompat="@drawable/ic_back"
-        app:tint="@color/white" />
+        app:tint="@color/white" />-->
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/shape_login"
         android:elevation="10dp">
 
