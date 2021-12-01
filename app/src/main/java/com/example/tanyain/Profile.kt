@@ -22,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
+import org.w3c.dom.Text
 import java.io.File
 import kotlin.math.log
 
@@ -30,7 +31,10 @@ class Profile : AppCompatActivity() {
     private lateinit var dispName: TextView
     private lateinit var dispGender: TextView
     private lateinit var dispEmail: TextView
-
+    private lateinit var dispBirthday: TextView
+    private lateinit var dispNoHP: TextView
+    private lateinit var dispAddress: TextView
+    private lateinit var totalAnswer: TextView
     private lateinit var totalQuestion: TextView
 
     private lateinit var btnEdit: Button
@@ -54,7 +58,11 @@ class Profile : AppCompatActivity() {
         dispName = findViewById(R.id.nameProfile)
         dispGender = findViewById(R.id.genderProfile)
         dispEmail = findViewById(R.id.emailProfile)
+        dispAddress = findViewById(R.id.addressProfile)
+        dispNoHP = findViewById(R.id.noHPProfile)
+        dispBirthday = findViewById(R.id.birthdayProfile)
 
+        totalAnswer = findViewById(R.id.profileAnswer)
         totalQuestion = findViewById(R.id.profileQuestion)
 
         btnMenu = findViewById(R.id.menuBtn)
@@ -133,12 +141,22 @@ class Profile : AppCompatActivity() {
                 var lName = it.child("lastName").value.toString().trim()
                 var gender = it.child("gender").value.toString().trim()
                 var email = it.child("email").value.toString().trim()
+                var birthday = it.child("birthday").value.toString().trim()
+                var noHp = it.child("noHP").value.toString().trim()
+                var address = it.child("address").value.toString().trim()
+
+                var answer = it.child("totalAnswer").value.toString().trim()
                 var question = it.child("totalQuestion").value.toString().trim()
 
                 dispName.setText(fName.plus(" ").plus(lName))
                 dispGender.setText(gender)
                 dispEmail.setText(email)
+                dispBirthday.setText(birthday)
+                dispAddress.setText(address)
+                dispNoHP.setText(noHp)
+
                 totalQuestion.setText(question)
+                totalAnswer.setText(answer)
             }
 
         /*Edit Profile Button*/
