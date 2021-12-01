@@ -76,7 +76,7 @@
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/input_yellow"
-                android:hint="Birthday"
+                android:hint="Birthday format (DD/MM/YYYY)"
                 android:inputType="date"
                 android:minHeight="45dp"
                 android:padding="10dp"

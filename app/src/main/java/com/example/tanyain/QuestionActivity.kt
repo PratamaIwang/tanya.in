@@ -3,6 +3,7 @@ package com.example.tanyain
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -77,11 +78,13 @@ class QuestionActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             progressBar.visibility = View.VISIBLE
-            FirebaseDatabase.getInstance().getReference("tanyain").child("users").child(uid).get()
-                .addOnSuccessListener {
+           val users_database = FirebaseDatabase.getInstance().getReference("tanyain").child("users").child(uid)
+               users_database.get().addOnSuccessListener {
                     var fName = it.child("firstName").value.toString().trim()
                     var lName = it.child("lastName").value.toString().trim()
-                    val id= maxid.plus(1).toString().trim()
+                    val id = maxid.plus(1).toString().trim()
+                    val totalQuestion = it.child("totalQuestion").value.toString().trim()
+                    val plus = totalQuestion.toInt().plus(1)
 
                     if (selectedPhoto!= null){
                         img_database.putFile(selectedPhoto!!)
@@ -89,6 +92,7 @@ class QuestionActivity : AppCompatActivity() {
                         database.child(id).setValue(question).addOnCompleteListener(this) { task ->
                             if(task.isSuccessful){
                                 progressBar.visibility = View.GONE
+                                users_database.child("totalQuestion").setValue(plus.toString())
                                 Toast.makeText(this,"Problem uploaded successfully!",Toast.LENGTH_SHORT).show()
                                 startActivity(Intent(this,DashActivity::class.java))
                                 finish()
@@ -97,11 +101,13 @@ class QuestionActivity : AppCompatActivity() {
                                 Toast.makeText(this,"Problem upload failed! Try again",Toast.LENGTH_SHORT).show()
                             }
                         }
+
                     }else if(selectedPhoto==null){
                         val question = Question( maxid,uid,fName+" "+lName,"Unsolved",category,desc,null)
                         database.child(id).setValue(question).addOnCompleteListener(this) { task ->
                             if(task.isSuccessful){
                                 progressBar.visibility = View.GONE
+                                users_database.child("totalQuestion").setValue(plus.toString())
                                 Toast.makeText(this,"Problem uploaded successfully!",Toast.LENGTH_SHORT).show()
                                 startActivity(Intent(this,DashActivity::class.java))
                                 finish()
