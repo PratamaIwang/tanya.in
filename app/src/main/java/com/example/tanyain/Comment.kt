@@ -80,16 +80,19 @@ class Comment : AppCompatActivity() {
 
             /*Database Instace*/
             val image_database = FirebaseStorage.getInstance().getReference("/answers_images/$filename")
-            FirebaseDatabase.getInstance().getReference("tanyain").child("users").child(uid).get()
-                .addOnSuccessListener {
+            val users_database = FirebaseDatabase.getInstance().getReference("tanyain").child("users").child(uid)
+                users_database.get().addOnSuccessListener {
                     var fName = it.child("firstName").value.toString().trim()
                     var lName = it.child("lastName").value.toString().trim()
+                    var answer = it.child("totalAnswer").value.toString().trim()
+                    var plus = answer.toInt().plus(1)
                     if(selectedPhoto!=null){
                         val answer = Answer(id.toString(),maxid.toString(),desc,filename,uid,fName+" "+lName)
                         database.child(id.toString()).child("answer").child(maxid.plus(1).toString().trim()).setValue(answer)
                             .addOnCompleteListener(this){ task ->
                                 if(task.isSuccessful){
                                     progressBar.visibility = View.GONE
+                                    users_database.child("totalAnswer").setValue(plus)
                                     image_database.putFile(selectedPhoto!!)
                                     Toast.makeText(this,"Answer uploaded successfully!",Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this,DashActivity::class.java))
@@ -105,6 +108,7 @@ class Comment : AppCompatActivity() {
                             .addOnCompleteListener(this){ task ->
                                 if(task.isSuccessful){
                                     progressBar.visibility = View.GONE
+                                    users_database.child("totalAnswer").setValue(plus)
                                     Toast.makeText(this,"Answer uploaded successfully!",Toast.LENGTH_SHORT).show()
                                     startActivity(Intent(this,DashActivity::class.java))
                                     finish()
