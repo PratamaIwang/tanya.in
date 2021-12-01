@@ -16,6 +16,7 @@ class Comment : AppCompatActivity() {
 
     private lateinit var answerDesc: EditText
     private lateinit var answerImage: ImageView
+    private lateinit var backButton: ImageView
 
     private lateinit var addImgBtn: Button
     private lateinit var uploadAnswerBtn: Button
@@ -32,10 +33,17 @@ class Comment : AppCompatActivity() {
         answerDesc = findViewById(R.id.answerDesc)
         answerImage = findViewById(R.id.answerImg)
 
+        backButton = findViewById(R.id.addcomment_BackBtn)
+
         addImgBtn = findViewById(R.id.answerImgAdd)
         uploadAnswerBtn = findViewById(R.id.uploadBtn)
 
         progressBar = findViewById(R.id.progressBarAddAnswer)
+
+        /*Back Button*/
+        backButton.setOnClickListener{
+            onBackPressed()
+        }
 
         /*Ambil Value Intent Extra*/
         val intent = intent
