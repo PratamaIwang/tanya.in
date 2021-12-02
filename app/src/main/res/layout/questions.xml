@@ -27,6 +27,7 @@
             android:layout_width="190dp"
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
@@ -38,19 +39,20 @@
                 android:textStyle="bold"
                 android:fontFamily="@font/poppins_regular"/>
 
-            <TextView
-                android:id="@+id/rv_Date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="Tanggal"
-                android:fontFamily="@font/poppins_regular"/>
+<!--            <TextView-->
+<!--                android:id="@+id/rv_Date"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textSize="15sp"-->
+<!--                android:text="Tanggal"-->
+<!--                android:fontFamily="@font/poppins_regular"/>-->
         </LinearLayout>
 
         <TextView
             android:id="@+id/rv_Category"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:gravity="right"
             android:text="Kategori"
             android:textSize="15dp"
